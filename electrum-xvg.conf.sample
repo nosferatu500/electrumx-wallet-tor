@@ -6,7 +6,7 @@
 # that can be rewritten by the client
 
 [client]
-server = qz6pnufyqjexudq6.onion:50001:t
+server = 7mcu7dfreuruk4se.onion:50001:t
 proxy = 127.0.0.1:9150
 gap_limit = 5
 # booleans use python syntax
