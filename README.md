@@ -1,10 +1,10 @@
-Electrum-XVG for TOR - 
+Electrum-CRYP for TOR - 
 ------------------------------------------------
-lightweight VERGE client for connecting 
+lightweight CrypricCoin client for connecting 
 ------------------------------------------------
-to the XVG Tor Electrum Server
+to the CRYP Tor Electrum Server
 ------------------------------------------------
-![Electrum-XVG](https://raw.githubusercontent.com/vergecurrency/electrum-xvg-tor/master/electrumlogo.png)
+![Electrum-CRYP](https://raw.githubusercontent.com/vergecurrency/electrum-xvg-tor/master/electrumlogo.png)
 
 [![Build Status](https://travis-ci.org/vergecurrency/electrum-xvg-tor.svg?branch=master)](https://travis-ci.org/vergecurrency/electrum-xvg-tor)
 
@@ -14,7 +14,7 @@ Authors: sunerok, bitspill & whit3water
 
 Language: Python
 
-Homepage: http://VERGEcurrency.com/
+Homepage: http://CrypticCoin.io/
 
 Download TOR: https://www.torproject.org/download/download
 
@@ -42,7 +42,7 @@ sudo apt-get install git pyqt4-dev-tools python-pip python-dev python-slowaes py
 
 sudo pip install pyasn1 pyasn1-modules pbkdf2 tlslite qrcode
 
-git clone https://github.com/vergecurrency/electrum-xvg-tor && cd electrum-xvg-tor
+git clone https://github.com/nosferatu500/electrumx-wallet-tor && cd electrumx-wallet-tor
 
 pyrcc4 icons.qrc -o gui/qt/icons_rc.py
 
@@ -56,7 +56,7 @@ To run Electrum from this directory, just do:
 
 To start Electrum from your web browser, see
 --------------------------------------------
-http://electrum-verge.xyz/Verge_URIs.html
+http://electrum-cryticcoin.xyz/cryticcoin.html
 
 To update your copy of the electrum client:
 -------------------------------------------
@@ -70,7 +70,7 @@ sudo python setup.py install
 ------------------
 
 -download this repo as a zip and extract it to where you would like it to run from. 
-https://github.com/vergecurrency/electrum-xvg/archive/master.zip
+https://github.com/nosferatu500/electrumx-wallet-tor/archive/master.zip
 
 -download python 2.7 for windows here: https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi
 
@@ -129,7 +129,7 @@ On Mac OS X:
   
   ARCHFLAGS="-arch i386 -arch x86_64" sudo python setup-release.py py2app --includes sip
 
-  sudo hdiutil create -fs HFS+ -volname "Electrum-XVG" -srcfolder dist/Electrum-XVG.app dist/electrum-xvg-VERSION-macosx.dmg
+  sudo hdiutil create -fs HFS+ -volname "Electrum-CRYP" -srcfolder dist/Electrum-CRYP.app dist/electrum-xvg-VERSION-macosx.dmg
 
 
-[![Visit our IRC Chat!](https://kiwiirc.com/buttons/irc.freenode.net/verge.png)](https://kiwiirc.com/client/irc.freenode.net/?nick=xvg|?&theme=cli#verge)
+[![Visit our IRC Chat!](https://kiwiirc.com/buttons/irc.freenode.net/cryticcoin.png)](https://kiwiirc.com/client/irc.freenode.net/?nick=xvg|?&theme=cli#cryticcoin)

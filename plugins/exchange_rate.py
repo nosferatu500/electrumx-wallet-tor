@@ -98,12 +98,12 @@ class Exchanger(threading.Thread):
 
 
     def update_b2c(self):
-        jsonresp = self.get_json('www.bit2c.co.il', "/Exchanges/XVGNIS/Ticker.json")
+        jsonresp = self.get_json('www.bit2c.co.il', "/Exchanges/CRYPNIS/Ticker.json")
         return {"NIS": Decimal(str(jsonresp["ll"]))}
 
     def update_bv(self):
         jsonresp = self.get_json('api.bitcoinvenezuela.com', "/")
-        return dict([(r, Decimal(jsonresp["XVG"][r])) for r in jsonresp["XVG"]])
+        return dict([(r, Decimal(jsonresp["CRYP"][r])) for r in jsonresp["CRYP"]])
 
     def update_bf(self):
         jsonresp = self.get_json('api.bitfinex.com', "/v1/pubticker/xvgusd")
@@ -129,19 +129,19 @@ class Exchanger(threading.Thread):
     def update_gc(self):
         jsonresp = self.get_json('x.g0cn.com', "/prices")
         quote_currencies = {}
-        for r in jsonresp["prices"]["XVG"]:
-            quote_currencies[r] = Decimal(jsonresp["prices"]["XVG"][r])
+        for r in jsonresp["prices"]["CRYP"]:
+            quote_currencies[r] = Decimal(jsonresp["prices"]["CRYP"][r])
         return quote_currencies
 
     def update_hb(self):
         quote_currencies = {"EUR": 0.0, "USD": 0.0}
         for cur in quote_currencies:
-            quote_currencies[cur] = Decimal(str(self.get_json('api.hitbtc.com', "/api/1/public/XVG" + cur + "/ticker")["last"]))
+            quote_currencies[cur] = Decimal(str(self.get_json('api.hitbtc.com', "/api/1/public/CRYP" + cur + "/ticker")["last"]))
         return quote_currencies
 
     def update_kk(self):
         resp_currencies = self.get_json('api.kraken.com', "/0/public/AssetPairs")["result"]
-        pairs = ','.join([k for k in resp_currencies if k.startswith("XXVGZ")])
+        pairs = ','.join([k for k in resp_currencies if k.startswith("XCRYPZ")])
         resp_rate = self.get_json('api.kraken.com', "/0/public/Ticker?pair=" + pairs)["result"]
         quote_currencies = {}
         for cur in resp_rate:
@@ -213,7 +213,7 @@ class Plugin(BasePlugin):
         self.get_fiat_price_text(r)
         quote = r.get(0)
         if quote:
-            price_text = "1 XVG~%s"%quote
+            price_text = "1 CRYP~%s"%quote
             fiat_currency = quote[-3:]
             btc_price = self.btc_rate
             fiat_balance = Decimal(btc_price) * (Decimal(btc_balance)/100000000)
@@ -277,7 +277,7 @@ class Plugin(BasePlugin):
             cur_currency = self.fiat_unit()
             if cur_currency in ("ARS", "EUR", "USD", "VEF"):
                 try:
-                    self.resp_hist = self.exchanger.get_json('api.bitcoinvenezuela.com', "/historical/index.php?coin=XVG")[cur_currency + '_XVG']
+                    self.resp_hist = self.exchanger.get_json('api.bitcoinvenezuela.com', "/historical/index.php?coin=CRYP")[cur_currency + '_XVG']
                 except Exception:
                     return
             else:
@@ -286,7 +286,7 @@ class Plugin(BasePlugin):
             cur_currency = self.fiat_unit()
             if cur_currency in ("EUR", "USD"):
                 try:
-                    self.resp_hist = self.exchanger.get_json('api.kraken.com', "https://api.kraken.com/0/public/OHLC?pair=XVG"+cur_currency+"&interval=1440")['result']['XXVGZ'+cur_currency]
+                    self.resp_hist = self.exchanger.get_json('api.kraken.com', "https://api.kraken.com/0/public/OHLC?pair=CRYP"+cur_currency+"&interval=1440")['result']['XXVGZ'+cur_currency]
                     self.resp_hist = dict([(t[0], t[4]) for t in self.resp_hist])
                 except Exception:
                     return

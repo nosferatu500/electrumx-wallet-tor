@@ -104,9 +104,9 @@ def user_dir():
     if "HOME" in os.environ:
         return os.path.join(os.environ["HOME"], ".electrum-xvg-tor")
     elif "APPDATA" in os.environ:
-        return os.path.join(os.environ["APPDATA"], "Electrum-XVG-tor")
+        return os.path.join(os.environ["APPDATA"], "Electrum-CRYP-tor")
     elif "LOCALAPPDATA" in os.environ:
-        return os.path.join(os.environ["LOCALAPPDATA"], "Electrum-XVG-tor")
+        return os.path.join(os.environ["LOCALAPPDATA"], "Electrum-CRYP-tor")
     elif 'ANDROID_DATA' in os.environ:
         return "/sdcard/electrum-xvg-tor/"
     else:
@@ -204,7 +204,7 @@ def time_difference(distance_in_time, include_seconds):
         return "over %d years" % (round(distance_in_minutes / 525600))
 
 block_explorer_info = {
-    'Verge Onion Explorer': ('http://dvzs4zoxkg6z43dd.onion/',
+    'CrypricCoin Onion Explorer': ('http://dvzs4zoxkg6z43dd.onion/',
                         {'tx': 'tx', 'addr': 'address'}),
 }
 
@@ -237,7 +237,7 @@ def parse_URI(uri):
         return {'address': uri}
 
     u = urlparse.urlparse(uri)
-    assert u.scheme == 'verge'
+    assert u.scheme == 'cryticcoin'
 
     address = u.path
 
@@ -289,7 +289,7 @@ def create_URI(addr, amount, message):
         if type(message) == unicode:
             message = message.encode('utf8')
         query.append('message=%s'%urllib.quote(message))
-    p = urlparse.ParseResult(scheme='verge', netloc='', path=addr, params='', query='&'.join(query), fragment='')
+    p = urlparse.ParseResult(scheme='cryticcoin', netloc='', path=addr, params='', query='&'.join(query), fragment='')
     return urlparse.urlunparse(p)
 
 

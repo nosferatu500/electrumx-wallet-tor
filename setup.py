@@ -26,7 +26,7 @@ if platform.system() in [ 'Linux', 'FreeBSD', 'DragonFly']:
 
 
 setup(
-    name="Electrum-XVG",
+    name="Electrum-CRYP",
     version=version.ELECTRUM_VERSION,
     install_requires=[
         'slowaes>=0.1a1',
@@ -62,10 +62,10 @@ setup(
     },
     scripts=['electrum-xvg'],
     data_files=data_files,
-    description="Lightweight Verge tOR Wallet",
-    author="sunerok",
-    author_email="twitter.com/vergecurrency",
+    description="Lightweight CrypricCoin TOR Wallet",
+    author="cryp",
+    author_email="twitter.com/CrypticCoin_io",
     license="GNU GPLv3",
-    url="https://vergecurrency.com",
-    long_description="""Lightweight Verge Wallet"""
+    url="https://crypticcoin.io",
+    long_description="""Lightweight CrypricCoin Wallet"""
 )

@@ -25,9 +25,9 @@ executables = [
 ]
  
 setup(
-    name='Electrum XVG (Tor)',
+    name='Electrum CRYP (Tor)',
     version=ELECTRUM_VERSION,
-    description = 'Electrum Tor Wallet for Verge (XVG)',
+    description = 'Electrum Tor Wallet for CrypticCoin (CRYP)',
     options = dict(build_exe = buildOptions),
     executables = executables,    
 )

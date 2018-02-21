@@ -162,7 +162,7 @@ class SimpleConfig(object):
         if not os.path.exists(dirpath):
             os.mkdir(dirpath)
 
-        new_path = os.path.join(self.path, "wallets", "default_wallet")
+        new_path = os.path.join(self.path, "wallets", "TOR")
 
         # default path in pre 1.9 versions
         old_path = os.path.join(self.path, "electrum-xvg.dat")

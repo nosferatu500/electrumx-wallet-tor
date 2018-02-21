@@ -36,7 +36,7 @@ class VersionGetter(threading.Thread):
 
     def run(self):
         try:
-            res = requests.request("GET", "http://electrum-verge.xyz/version")
+            res = requests.request("GET", "http://electrum-cryticcoin.xyz/version") #TODO: temp
         except:
             print_error("Could not retrieve version information")
             return
@@ -94,16 +94,16 @@ class UpdateLabel(QLabel):
         self.dialog.done(0)
 
     def open_website(self):
-        webbrowser.open("http://electrum-verge.xyz/download.html")
+        webbrowser.open("http://electrum-cryticcoin.xyz/download.html") #TODO: temp
         self.dialog.done(0)
 
     def mouseReleaseEvent(self, event):
         dialog = QDialog(self)
-        dialog.setWindowTitle(_('Electrum-XVG update'))
+        dialog.setWindowTitle(_('Electrum-CRYP update'))
         dialog.setModal(1)
 
         main_layout = QGridLayout()
-        main_layout.addWidget(QLabel(_("A new version of Electrum-XVG is available:")+" " + self.latest_version), 0,0,1,3)
+        main_layout.addWidget(QLabel(_("A new version of Electrum-CRYP is available:")+" " + self.latest_version), 0,0,1,3)
 
         ignore_version = QPushButton(_("Ignore this version"))
         ignore_version.clicked.connect(self.ignore_this_version)

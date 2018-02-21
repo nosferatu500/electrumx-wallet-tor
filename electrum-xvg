@@ -104,9 +104,9 @@ def run_gui(config):
     if url:
         if os.path.exists(url):
             # assume this is a payment request
-            url = "verge:?r=file://"+ os.path.join(os.getcwd(), url)
+            url = "cryticcoin:?r=file://"+ os.path.join(os.getcwd(), url)
 
-        if not re.match('^verge:', url):
+        if not re.match('^cryticcoin:', url):
             print_stderr('unknown command:', url)
             sys.exit(1)
 

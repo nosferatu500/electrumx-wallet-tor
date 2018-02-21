@@ -79,9 +79,9 @@ class BTCAmountEdit(AmountEdit):
         p = self.decimal_point()
         assert p in [0, 3, 6]
         if p == 6:
-            return 'XVG'
+            return 'CRYP'
         if p == 3:
-            return 'mXVG'
+            return 'mCRYP'
         if p == 0:
             return 'bits'
         raise Exception('Unknown base unit')

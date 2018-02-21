@@ -227,7 +227,7 @@ class ElectrumWindow(QMainWindow):
         self.dummy_address = a[0] if a else None
         self.accounts_expanded = self.wallet.storage.get('accounts_expanded',{})
         self.current_account = self.wallet.storage.get("current_account", None)
-        title = 'Electrum-XVG %s  -  %s' % (self.wallet.electrum_version, self.wallet.basename())
+        title = 'Electrum-CRYP %s  -  %s' % (self.wallet.electrum_version, self.wallet.basename())
         if self.wallet.is_watching_only():
             title += ' [%s]' % (_('watching only'))
         self.setWindowTitle( title )
@@ -418,7 +418,7 @@ class ElectrumWindow(QMainWindow):
 
         help_menu = menubar.addMenu(_("&Help"))
         help_menu.addAction(_("&About"), self.show_about)
-        help_menu.addAction(_("&Official website"), lambda: webbrowser.open("https://VergeCurrency.com"))
+        help_menu.addAction(_("&Official website"), lambda: webbrowser.open("https://CrypticCoin.io"))
         help_menu.addSeparator()
         help_menu.addAction(_("&Documentation"), lambda: webbrowser.open("http://electrum.orain.org/")).setShortcut(QKeySequence.HelpContents)
         help_menu.addAction(_("&Report Bug"), self.show_report_bug)
@@ -426,12 +426,12 @@ class ElectrumWindow(QMainWindow):
         self.setMenuBar(menubar)
 
     def show_about(self):
-        QMessageBox.about(self, "Electrum-XVG",
-            _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" + _("Electrum's focus is speed, with low resource usage and simplifying Verge. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Verge system."))
+        QMessageBox.about(self, "Electrum-CRYP",
+            _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" + _("Electrum's focus is speed, with low resource usage and simplifying CrypricCoin. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the CrypricCoin system."))
 
     def show_report_bug(self):
-        QMessageBox.information(self, "Electrum-XVG - " + _("Reporting Bugs"),
-            _("Please report any bugs as issues on github:")+" <a href=\"https://github.com/vergecurrency/electrum-xvg-tor/issues\">https://github.com/vergecurrency/electrum-xvg-tor/issues</a>")
+        QMessageBox.information(self, "Electrum-CRYP - " + _("Reporting Bugs"),
+            _("Please report any bugs as issues on github:")+" <a href=\"https://github.com/nosferatu500/electrumx-wallet-tor/issues\">https://github.com/nosferatu500/electrumx-wallet-tor/issues</a>")
 
 
     def notify_transactions(self):
@@ -463,7 +463,7 @@ class ElectrumWindow(QMainWindow):
 
     def notify(self, message):
         if self.tray:
-            self.tray.showMessage("Electrum-XVG", message, QSystemTrayIcon.Information, 20000)
+            self.tray.showMessage("Electrum-CRYP", message, QSystemTrayIcon.Information, 20000)
 
 
 
@@ -511,9 +511,9 @@ class ElectrumWindow(QMainWindow):
         if self.decimal_point == 0:
             return 'bits'
         if self.decimal_point == 3:
-            return 'mXVG'
+            return 'mCRYP'
         if self.decimal_point == 6:
-            return 'XVG'
+            return 'CRYP'
         raise Exception('Unknown base unit')
 
     def update_status(self):
@@ -601,7 +601,7 @@ class ElectrumWindow(QMainWindow):
         self.receive_address_e = ButtonsLineEdit()
         self.receive_address_e.addCopyButton(self.app)
         self.receive_address_e.setReadOnly(True)
-        msg = _('Verge address where the payment should be received. Note that each payment request uses a different Verge address.')
+        msg = _('CrypricCoin address where the payment should be received. Note that each payment request uses a different CrypricCoin address.')
         self.receive_address_label = HelpLabel(_('Receiving address'), msg)
         self.receive_address_e.textChanged.connect(self.update_receive_qr)
         self.receive_address_e.setFocusPolicy(Qt.NoFocus)
@@ -624,7 +624,7 @@ class ElectrumWindow(QMainWindow):
         msg = ' '.join([
             _('Expiration date of your request.'),
             _('This information is seen by the recipient if you send them a signed payment request.'),
-            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Verge addresses'),
+            _('Expired requests have to be deleted manually from your list, in order to free the corresponding CrypricCoin addresses'),
         ])
         grid.addWidget(HelpLabel(_('Expires in'), msg), 3, 0)
         grid.addWidget(self.expires_combo, 3, 1)
@@ -924,7 +924,7 @@ class ElectrumWindow(QMainWindow):
         self.amount_e = BTCAmountEdit(self.get_decimal_point)
         self.payto_e = PayToEdit(self)
         msg = _('Recipient of the funds.') + '\n\n'\
-              + _('You may enter a Verge address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a Verge address)')
+              + _('You may enter a CrypricCoin address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a CrypricCoin address)')
         payto_label = HelpLabel(_('Pay to'), msg)
         grid.addWidget(payto_label, 1, 0)
         grid.addWidget(self.payto_e, 1, 1, 1, 3)
@@ -957,7 +957,7 @@ class ElectrumWindow(QMainWindow):
         grid.addWidget(amount_label, 4, 0)
         grid.addWidget(self.amount_e, 4, 1, 1, 2)
 
-        msg = _('Verge transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
+        msg = _('CrypricCoin transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
               + _('The amount of fee can be decided freely by the sender. However, transactions with low fees take more time to be processed.') + '\n\n'\
               + _('A suggested fee is automatically added to this field. You may override it. The suggested fee increases with the size of the transaction.')
         self.fee_e_label = HelpLabel(_('Fee'), msg)
@@ -1162,10 +1162,10 @@ class ElectrumWindow(QMainWindow):
 
         for _type, addr, amount in outputs:
             if addr is None:
-                QMessageBox.warning(self, _('Error'), _('Verge Address is None'), _('OK'))
+                QMessageBox.warning(self, _('Error'), _('CrypricCoin Address is None'), _('OK'))
                 return
             if _type == 'address' and not bitcoin.is_address(addr):
-                QMessageBox.warning(self, _('Error'), _('Invalid Verge Address'), _('OK'))
+                QMessageBox.warning(self, _('Error'), _('Invalid CrypricCoin Address'), _('OK'))
                 return
             if amount is None:
                 QMessageBox.warning(self, _('Error'), _('Invalid Amount'), _('OK'))
@@ -1340,7 +1340,7 @@ class ElectrumWindow(QMainWindow):
         try:
             out = util.parse_URI(unicode(URI))
         except Exception as e:
-            QMessageBox.warning(self, _('Error'), _('Invalid Verge URI:') + '\n' + str(e), _('OK'))
+            QMessageBox.warning(self, _('Error'), _('Invalid CrypricCoin URI:') + '\n' + str(e), _('OK'))
             return
         self.tabs.setCurrentIndex(1)
 
@@ -1873,7 +1873,7 @@ class ElectrumWindow(QMainWindow):
         vbox.addWidget(QLabel(_('Account name')+':'))
         e = QLineEdit()
         vbox.addWidget(e)
-        msg = _("Note: Newly created accounts are 'pending' until they receive verge coins.") + " " \
+        msg = _("Note: Newly created accounts are 'pending' until they receive cryticcoin coins.") + " " \
             + _("You will need to wait for 2 confirmations until the correct balance is displayed and more addresses are created for that account.")
         l = QLabel(msg)
         l.setWordWrap(True)
@@ -2205,7 +2205,7 @@ class ElectrumWindow(QMainWindow):
         if not data:
             return
         # if the user scanned a bitcoin URI
-        if data.startswith("verge:"):
+        if data.startswith("cryticcoin:"):
             self.pay_to_URI(data)
             return
         # else if the user scanned an offline signed tx
@@ -2620,9 +2620,9 @@ class ElectrumWindow(QMainWindow):
         SSL_key_e.editingFinished.connect(lambda: self.config.set_key('ssl_key', str(SSL_key_e.text())))
         id_widgets.append((SSL_key_label, SSL_key_e))
 
-        units = ['XVG', 'mXVG', 'bits']
+        units = ['CRYP', 'mCRYP', 'bits']
         msg = _('Base unit of your wallet.')\
-              + '\n1XVG=1000mXVG.\n' \
+              + '\n1CRYP=1000mCRYP.\n' \
               + _(' These settings affects the fields in the Send tab')+' '
         unit_label = HelpLabel(_('Base unit') + ':', msg)
         unit_combo = QComboBox()
@@ -2632,9 +2632,9 @@ class ElectrumWindow(QMainWindow):
             unit_result = units[unit_combo.currentIndex()]
             if self.base_unit() == unit_result:
                 return
-            if unit_result == 'XVG':
+            if unit_result == 'CRYP':
                 self.decimal_point = 8
-            elif unit_result == 'mXVG':
+            elif unit_result == 'mCRYP':
                 self.decimal_point = 5
             elif unit_result == 'bits':
                 self.decimal_point = 2
