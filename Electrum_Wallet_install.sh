@@ -17,7 +17,7 @@ sudo python3.5 -m pip install pyasn1 pyasn1-modules pbkdf2 tlslite qrcode
 
 sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
-sudo apt-get install tor-browser -y
+sudo apt-get install tor -y
 
 sudo cp -r /var/lib/tor /var/lib/tor2
 
