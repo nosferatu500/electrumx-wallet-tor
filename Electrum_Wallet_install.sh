@@ -17,9 +17,14 @@ sudo python3.5 -m pip install pyasn1 pyasn1-modules pbkdf2 tlslite qrcode
 
 sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
-sudo apt-get install tor-browser -y
+sudo apt-get install tor -y
 
 sudo cp -r /var/lib/tor /var/lib/tor2
+
+echo "HiddenServiceDir $HOME/electrumx-wallet-tor/tor/" >>  torrc_el 
+echo "HiddenServicePort 50001 88.99.174.169:50001" >>  torrc_el 
+echo "HiddenServicePort 50002 88.99.174.169:50002" >>  torrc_el 
+
 
 sudo cp torrc_el /etc/tor
 
@@ -31,6 +36,21 @@ sudo cp -r .electrum-xvg-tor $HOME
 
 sudo chown -R $USER:$USER $HOME/.electrum-xvg-tor/
 
-sudo tor -f /etc/tor/torrc_el  &
+sudo tor -f /etc/tor/torrc_el --RunAsDaemon 1
+
+#############################
+########## WARNING ##########
+#############################
+
+# Save  your unique key for access to blockchain'
+
+################################
+
+sudo sed -n '1p' tor/hostname
+
+################################
+
+# Use upper line for  connect to server'
+
 
 ./electrum-xvg
