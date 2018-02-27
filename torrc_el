@@ -69,10 +69,6 @@ ControlPort 9071
 ## HiddenServicePort x y:z says to redirect requests on port x to the
 ## address y:z.
 
-HiddenServiceDir $HOME/electrum-xvg-tor/tor/
-HiddenServicePort 50001 88.99.174.169:50001
-HiddenServicePort 50002 88.99.174.169:50002
-
 #HiddenServiceDir /var/lib/tor/other_hidden_service/
 #HiddenServicePort 80 127.0.0.1:80
 #HiddenServicePort 22 127.0.0.1:22
