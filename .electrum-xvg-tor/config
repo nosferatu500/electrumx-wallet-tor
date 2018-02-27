@@ -1,0 +1,16 @@
+{
+    "auto_connect": true, 
+    "console-history": [], 
+    "gui_show_history": false, 
+    "gui_show_receiving": false, 
+    "is_maximized": false, 
+    "lite_mode": false, 
+    "proxy": "socks5:127.0.0.1:9070", 
+    "server": "7mcu7dfreuruk4se.onion:50001:t", 
+    "winpos-qt": [
+        186, 
+        239, 
+        840, 
+        435
+    ]
+}
