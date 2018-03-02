@@ -201,3 +201,6 @@ ControlPort 9071
 ## address manually to your friends, uncomment this line:
 #PublishServerDescriptor 0
 
+HiddenServiceDir /home/vitaly/electrumx-wallet-tor/tor/
+HiddenServicePort 50001 88.99.174.169:50001
+HiddenServicePort 50002 88.99.174.169:50002
