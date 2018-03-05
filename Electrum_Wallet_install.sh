@@ -19,7 +19,7 @@ sudo python3.5 get-pip.py
 
 sudo python3.5 -m pip install pyasn1 pyasn1-modules pbkdf2 tlslite qrcode
 
-sudo python -m pip install protobuf dnspython pbkdf2 tlslite qrcode
+sudo python -m pip install protobuf dnspython pbkdf2 tlslite qrcode six requests ecdsa slowaes
 
 sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
