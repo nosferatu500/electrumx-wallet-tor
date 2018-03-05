@@ -13,7 +13,13 @@ set -e
 cd electrumx-wallet-tor
 
 sudo apt-get install git pyqt4-dev-tools python-pip python-dev python-slowaes
+
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3.5 get-pip.py
+
 sudo python3.5 -m pip install pyasn1 pyasn1-modules pbkdf2 tlslite qrcode
+
+sudo python -m pip install protobuf dnspython pbkdf2 tlslite qrcode
 
 sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
