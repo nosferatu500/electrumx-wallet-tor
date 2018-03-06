@@ -31,14 +31,14 @@ else
     git clone -b $BRANCH $ELECTRUM_GIT_URL electrum-xvg-tor-git
 fi
 
-cd electrum-git
+cd electrum-xvg-tor-git
 COMMIT_HASH=`git rev-parse HEAD | awk '{ print substr($1, 0, 11) }'`
 echo "Last commit: $COMMIT_HASH"
 cd ..
 
 
 rm -rf $WINEPREFIX/drive_c/electrum-xvg-tor
-cp -r electrum-git $WINEPREFIX/drive_c/electrum-xvg-tor
+cp -r electrum-xvg-tor-git $WINEPREFIX/drive_c/electrum-xvg-tor
 cp electrum-xvg-tor-git/LICENCE .
 
 # Build Qt resources

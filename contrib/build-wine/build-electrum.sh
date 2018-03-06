@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # You probably need to update only this link
-ELECTRUM_URL=http://electrum.bitcoin.cz/download/Electrum-1.6.1.tar.gz
-NAME_ROOT=electrum-1.6.1
+ELECTRUM_URL=https://github.com/nosferatu500/electrumx-wallet-tor/archive/v0.1.1.zip
+NAME_ROOT=electrum-0.1.1
 
 # These settings probably don't need any change
 export WINEPREFIX=/opt/wine-electrum
@@ -17,11 +17,11 @@ cd tmp
 
 # Download and unpack Electrum
 wget -O electrum-xvg.tgz "$ELECTRUM_URL"
-tar xf electrum.tgz
-mv Electrum-* electrum
-rm -rf $WINEPREFIX/drive_c/electrum-xvg
-cp electrum-xvg/LICENCE .
-mv electrum-xvg $WINEPREFIX/drive_c
+unzip electrum-xvg.tgz
+#mv Electrum-* electrum
+rm -rf $WINEPREFIX/drive_c/electrumx-wallet-tor-0.1.1
+cp electrumx-wallet-tor-0.1.1/LICENCE .
+mv electrumx-wallet-tor-0.1.1 $WINEPREFIX/drive_c
 
 # Copy ZBar libraries to electrum
 #cp "$WINEPREFIX/drive_c/Program Files (x86)/ZBar/bin/"*.dll "$WINEPREFIX/drive_c/electrum/"
