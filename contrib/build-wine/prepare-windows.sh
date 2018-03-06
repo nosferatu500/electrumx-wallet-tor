@@ -13,6 +13,8 @@ LIBUSB_FILENAME=libusb-1.0.21.7z
 LIBUSB_URL=https://prdownloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.21/$LIBUSB_FILENAME?download
 LIBUSB_SHA256=acdde63a40b1477898aee6153f9d91d1a2e8a5d93f832ca8ab876498f3a6d2b8
 
+PYQT4_URL=http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.9.5/PyQt-Py2.6-x86-gpl-4.9.5-1.exe
+
 PYTHON_VERSION=2.7.14
 
 ## These settings probably don't need change
@@ -21,6 +23,10 @@ export WINEPREFIX=/opt/wine64
 
 PYHOME=c:/python$PYTHON_VERSION
 PYTHON="wine $PYHOME/python.exe -OO -B"
+
+# wine msiexec /i VCForPython27.msi
+
+# cp -r stdint.h $WINEPREFIX/drive_c/Program\ Files/Common\ Files/Microsoft/Visual\ C++\ for\ Python/9.0/VC/include/
 
 
 # based on https://superuser.com/questions/497940/script-to-verify-a-signature-with-gpg
@@ -78,10 +84,10 @@ KEYSERVER_PYTHON_DEV="hkp://keys.gnupg.net"
 gpg --no-default-keyring --keyring $KEYRING_PYTHON_DEV --keyserver $KEYSERVER_PYTHON_DEV --recv-keys $KEYLIST_PYTHON_DEV
 for msifile in core dev exe lib pip tools; do
     echo "Installing $msifile..."
-    wget -nc "https://www.python.org/ftp/python/$PYTHON_VERSION/win32/${msifile}.msi"
-    wget -nc "https://www.python.org/ftp/python/$PYTHON_VERSION/win32/${msifile}.msi.asc"
-    verify_signature "${msifile}.msi.asc" $KEYRING_PYTHON_DEV
-    wine msiexec /i "${msifile}.msi" /qb TARGETDIR=C:/python$PYTHON_VERSION
+    wget -nc "https://www.python.org/ftp/python/$PYTHON_VERSION/python-2.7.14.msi"
+    wget -nc "https://www.python.org/ftp/python/$PYTHON_VERSION/python-2.7.14.msi.asc"
+    verify_signature "python-2.7.14.msi.asc" $KEYRING_PYTHON_DEV
+    wine msiexec /i "python-2.7.14.msi" /qb TARGETDIR=C:/python$PYTHON_VERSION
 done
 
 # upgrade pip
@@ -98,22 +104,25 @@ $PYTHON -m pip install -r $here/../deterministic-build/requirements-binaries.txt
 # Install PyInstaller
 $PYTHON -m pip install https://github.com/ecdsa/pyinstaller/archive/fix_2952.zip
 
+$PYTHON -m pip install https://github.com/dhb52/python-lib/raw/master/PyQt4-4.11.4-cp27-cp27m-win32.whl
+
+# Install PyQt4
+# wget -O PyQt.exe "$PYQT4_URL"
+# wine PyQt.exe
+
 # Install ZBar
-download_if_not_exist $ZBAR_FILENAME "$ZBAR_URL"
-verify_hash $ZBAR_FILENAME "$ZBAR_SHA256"
-wine "$PWD/$ZBAR_FILENAME" /S
+wget -O $ZBAR_FILENAME "$ZBAR_URL"
+wine "$ZBAR_FILENAME" /S
 
 # Upgrade setuptools (so Electrum can be installed later)
 $PYTHON -m pip install setuptools --upgrade
 
 # Install NSIS installer
-download_if_not_exist $NSIS_FILENAME "$NSIS_URL"
-verify_hash $NSIS_FILENAME "$NSIS_SHA256"
-wine "$PWD/$NSIS_FILENAME" /S
+wget -O $NSIS_FILENAME "$NSIS_URL"
+wine "$NSIS_FILENAME" /S
 
-download_if_not_exist $LIBUSB_FILENAME "$LIBUSB_URL"
-verify_hash $LIBUSB_FILENAME "$LIBUSB_SHA256"
-7z x -olibusb $LIBUSB_FILENAME -aos
+wget -O $LIBUSB_FILENAME "$LIBUSB_URL"
+wine "$LIBUSB_FILENAME" /S
 
 cp libusb/MS32/dll/libusb-1.0.dll $WINEPREFIX/drive_c/python$PYTHON_VERSION/
 
@@ -123,6 +132,6 @@ cp libusb/MS32/dll/libusb-1.0.dll $WINEPREFIX/drive_c/python$PYTHON_VERSION/
 #cp upx*/upx.exe .
 
 # add dlls needed for pyinstaller:
-cp $WINEPREFIX/drive_c/python$PYTHON_VERSION/Lib/site-packages/PyQt5/Qt/bin/* $WINEPREFIX/drive_c/python$PYTHON_VERSION/
+cp -r $WINEPREFIX/drive_c/python$PYTHON_VERSION/Lib/site-packages/PyQt4/* $WINEPREFIX/drive_c/python$PYTHON_VERSION/
 
 echo "Wine is configured."

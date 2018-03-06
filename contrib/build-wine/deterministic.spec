@@ -1,12 +1,13 @@
 # -*- mode: python -*-
 
 # We don't put these files in to actually include them in the script but to make the Analysis method scan them for imports
-a = Analysis(['electrum', 'gui/qt/main_window.py', 'gui/qt/lite_window.py', 'gui/text.py',
-              'lib/util.py', 'lib/wallet.py', 'lib/simple_config.py',
-              'lib/bitcoin.py'
+home = 'C:\\electrum\\'
+a = Analysis([home+'electrum-xvg', home+'gui/qt/main_window.py', home+'gui/qt/lite_window.py', home+'gui/text.py',
+              home+'lib/util.py', home+'lib/wallet.py', home+'lib/simple_config.py',
+              home+'lib/bitcoin.py'
               ],
              hiddenimports=["lib","gui"],
-             pathex=['lib','gui','plugins','packages'],
+             pathex=['C:\\python2.7.14\\Lib\\site-packages\\PyQt4', 'lib','gui','plugins','packages'],
              hookspath=None)
 
 ##### include mydir in distribution #######
@@ -30,7 +31,7 @@ def extra_datas(mydir):
 # append dirs
 
 # cacert.pem
-a.datas += [ ('requests/cacert.pem', 'packages/requests/cacert.pem', 'DATA') ]
+# a.datas += [ ('requests/cacert.pem', 'packages/requests/cacert.pem', 'DATA') ]
 
 # Py folders that are needed because of the magic import finding
 a.datas += extra_datas('gui')
@@ -46,7 +47,7 @@ exe = EXE(pyz,
           debug=False,
           strip=None,
           upx=False,
-          icon='icons/electrum.ico',
+          icon=home+'icons/electrum.ico',
           console=False)
           # The console True makes an annoying black box pop up, but it does make Electrum output command line commands, with this turned off no output will be given but commands can still be used
 
@@ -57,6 +58,6 @@ coll = COLLECT(exe,
                strip=None,
                upx=True,
                debug=False,
-               icon='icons/electrum.ico',
+               icon=home+'icons/electrum.ico',
                console=False,
                name=os.path.join('dist', 'electrum'))

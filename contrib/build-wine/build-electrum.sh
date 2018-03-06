@@ -40,8 +40,8 @@ $PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w --onefile "C:/ele
 $PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w deterministic.spec
 
 # For building NSIS installer, run:
-wine "$WINEPREFIX/drive_c/Program Files (x86)/NSIS/makensis.exe" electrum.nsi
-#wine $WINEPREFIX/drive_c/Program\ Files\ \(x86\)/NSIS/makensis.exe electrum.nsis
+#wine "$WINEPREFIX/drive_c/Program Files/NSIS/makensis.exe" electrum.nsi
+wine $WINEPREFIX/drive_c/Program\ Files\ \(x86\)/NSIS/makensis.exe electrum.nsis
 
 cd dist
 mv electrum-xvg.exe $NAME_ROOT.exe
