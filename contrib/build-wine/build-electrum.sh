@@ -34,7 +34,7 @@ rm -f dist/$NAME_ROOT.exe
 rm -f dist/$NAME_ROOT-setup.exe
 
 # For building standalone compressed EXE, run:
-$PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w --onefile "C:/electrum-xvg/electrum-xvg"
+$PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w --onefile "C:/electrum-xvg/electrumx-wallet-tor-0.1.1"
 
 # For building uncompressed directory of dependencies, run:
 $PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w deterministic.spec

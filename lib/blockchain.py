@@ -34,7 +34,7 @@ class Blockchain():
     def __init__(self, config, network):
         self.config = config
         self.network = network
-        self.headers_url = 'https://github.com/nosferatu500/headers/blob/master/blockchain_headers'
+        self.headers_url = 'https://github.com/nosferatu500/headers/raw/master/blockchain_headers'
         self.local_height = 0
         self.set_local_height()
 
