@@ -3,11 +3,11 @@
 
 #Clone project
 if [ ! -d electrumx-wallet-tor ]; then
-  git clone https://github.com/nosferatu500/new-electrumx-wallet.git
+  git clone https://github.com/nosferatu500/electrumx-wallet-tor.git
 fi
 set -e
 
-cd new-electrumx-wallet
+cd electrumx-wallet-tor
 
 
 sudo easy_install pip
@@ -33,7 +33,7 @@ brew install tor
 
 sudo cp -r /usr/local/Cellar/tor /usr/local/Cellar/tor2
 
-echo "HiddenServiceDir $HOME/new-electrumx-wallet/tor/" >>  torrc_el_mac 
+echo "HiddenServiceDir $HOME/electrumx-wallet-tor/tor/" >>  torrc_el_mac 
 echo "HiddenServicePort 50001 78.46.201.35:50001" >>  torrc_el_mac
 echo "HiddenServicePort 50002 78.46.201.35:50002" >>  torrc_el_mac
 
