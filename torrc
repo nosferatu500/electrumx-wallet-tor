@@ -1,0 +1,7 @@
+SOCKSPort 9070
+
+HiddenServiceDir C:\Program Files\Electrum\tor
+
+HiddenServicePort 50001 78.46.201.35:50001
+
+HiddenServicePort 50002 78.46.201.35:50002
