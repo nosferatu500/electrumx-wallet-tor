@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['electrum-xvg'],
-             pathex=['/home/vitaly/electrumx-wallet-tor'],
+             pathex=['C:\\Users\\user\\Desktop\\electrumx-wallet-tor'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -18,16 +18,12 @@ pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 exe = EXE(pyz,
           a.scripts,
-          exclude_binaries=True,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
           name='electrum-xvg',
           debug=False,
           strip=False,
           upx=True,
-          console=True )
-coll = COLLECT(exe,
-               a.binaries,
-               a.zipfiles,
-               a.datas,
-               strip=False,
-               upx=True,
-               name='electrum-xvg')
+          runtime_tmpdir=None,
+          console=False )
