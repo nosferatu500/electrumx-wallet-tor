@@ -16,7 +16,7 @@ if is_bundle or is_local or is_android:
 
 from electrum_xvg.version import ELECTRUM_VERSION
 
-buildOptions = dict(packages = ["idna","shutil","ltc_scrypt","argparse","dns","gui","dbhash","dumbdbm","ConfigParser","mmap","plugins"], excludes = [], include_files=["lib","electrum-xvg.conf"])
+buildOptions = dict(packages = ["idna","shutil","ltc_scrypt","argparse","dns", "lib", "gui","dbhash","dumbdbm","ConfigParser","mmap","plugins"], excludes = [], include_files=["lib","electrum-xvg.conf"])
  
 base = 'Win32GUI' if sys.platform=='win32' else None
  
