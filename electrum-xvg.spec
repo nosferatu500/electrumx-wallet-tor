@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['electrum-xvg'],
-             pathex=['C:\\Users\\user\\Desktop\\electrumx-wallet-tor'],
+             pathex=['/Users/admin/electrumx-wallet-tor'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -27,3 +27,7 @@ exe = EXE(pyz,
           upx=True,
           runtime_tmpdir=None,
           console=False )
+app = BUNDLE(exe,
+             name='electrum-xvg.app',
+             icon=None,
+             bundle_identifier=None)

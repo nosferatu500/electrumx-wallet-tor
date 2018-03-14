@@ -4,8 +4,7 @@
 1) INSTALL PYTHON 2.7.14 (depend of arch)
 2) Download https://download.lfd.uci.edu/pythonlibs/n1rrk3iq/PyQt4-4.11.4-cp27-cp27m-win32.whl (IF X86)
 2.1) Download https://download.lfd.uci.edu/pythonlibs/n1rrk3iq/PyQt4-4.11.4-cp27-cp27m-win_amd64.whl (IF X64)
-3) python -m pip install protobuf dnspython pbkdf2 tlslite qrcode six reques
-ts ecdsa slowaes
+3) python -m pip install protobuf dnspython pbkdf2 tlslite qrcode six requests ecdsa slowaes
 4) python -m pip install PyQt4-4.11.4-cp27-cp27m* file
 5) pyrcc4 icons.qrc -o gui/qt/icons_rc.py
 6) python .\electrum-xvg
