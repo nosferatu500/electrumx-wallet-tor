@@ -75,9 +75,9 @@ Section
   CreateShortCut "$SMPROGRAMS\Electrum\Uninstall.lnk" "$INSTDIR\Uninstall.exe" "" "$INSTDIR\Uninstall.exe" 0
   CreateShortCut "$SMPROGRAMS\Electrum\Electrum.lnk" "$INSTDIR\electrum-xvg.exe" "" "$INSTDIR\electrum-xvg.exe" 0
 
-  CopyFiles "C:\Program files\Electrum\torrc" "C:\Users\user\AppData\Roaming\tor\torrc"
-  Exec "C:\Program files\Electrum\tor\Tor\tor.exe --service install"
-  Exec "C:\Program files\Electrum\tor\Tor\tor.exe --service start"
+  CopyFiles "$INSTDIR\torrc" "$PROFILE\AppData\Roaming\tor\torrc"
+  Exec "$INSTDIR\tor\Tor\tor.exe --service install"
+  Exec "$INSTDIR\tor\Tor\tor.exe --service start"
 
 SectionEnd
 
