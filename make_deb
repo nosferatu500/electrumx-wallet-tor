@@ -1,0 +1,21 @@
+0) exec: sudo python cx_setup.py build
+1) Create  folder DEBIAN
+2) create  file DEBIAN/control
+
+with data:
+
+Package: electrum-xvg-test
+Version: 0.0.1
+Maintainer: Vitaly Shvetsov <nosferatu2995@mail.ru>
+Architecture: all
+Section: misc
+Description: Description test.
+
+3) MAKE DIR:  usr/bin/electrum-cryp
+
+4) RUN: fakeroot dpkg-deb --build supersh
+
+todo: 
+
+1) make  .desktop file
+2) setup & config tor while install .deb
