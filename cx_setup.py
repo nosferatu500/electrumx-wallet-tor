@@ -18,7 +18,9 @@ from electrum_xvg.version import ELECTRUM_VERSION
 
 buildOptions = dict(packages = ["idna","shutil","ltc_scrypt","argparse","dns", "lib", "gui","dbhash","dumbdbm","ConfigParser","mmap","plugins"], excludes = [], include_files=["lib", "tor", "torrc", "electrum-xvg.conf"])
  
-base = 'Win32GUI' if sys.platform=='win32' else None
+base = None
+if sys.platform=='win32':
+    base = 'Win32GUI'
  
 executables = [
     Executable('electrum-xvg', base=base, icon = "./icons/electrum.ico")
