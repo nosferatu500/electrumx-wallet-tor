@@ -3,10 +3,10 @@
 
 [Desktop Entry]
 Comment=Lightweight CrypricCoin Tor Client
-Exec=electrum-xvg %u
+Exec=/usr/bin/electrum-cryp/electrum-xvg
 GenericName[en_US]=Electrum-CRYP-Tor
 GenericName=Electrum-CRYP
-Icon=electrum-xvg
+Icon=electrum
 Name[en_US]=Electrum CrypricCoin Tor Wallet
 Name=Electrum CrypricCoin Wallet
 Categories=Network;

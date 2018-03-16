@@ -1,0 +1,6 @@
+Package: electrum-cryp
+Version: 0.0.1
+Maintainer: Vitaly Shvetsov <nosferatu2995@mail.ru>
+Architecture: all
+Section: misc
+Description: Description test.

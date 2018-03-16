@@ -1,6 +1,5 @@
 0) exec: sudo python cx_setup.py build
-1) Create  folder DEBIAN
-2) create  file DEBIAN/control
+1) Put it inside DEBIAN folder
 
 with data:
 
@@ -13,9 +12,5 @@ Description: Description test.
 
 3) MAKE DIR:  usr/bin/electrum-cryp
 
-4) RUN: fakeroot dpkg-deb --build supersh
+4) RUN: dpkg-deb --build electrum-cryp
 
-todo: 
-
-1) make  .desktop file
-2) setup & config tor while install .deb

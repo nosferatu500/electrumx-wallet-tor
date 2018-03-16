@@ -200,7 +200,3 @@ ControlPort 9071
 ## a private bridge, for example because you'll give out your bridge
 ## address manually to your friends, uncomment this line:
 #PublishServerDescriptor 0
-
-HiddenServiceDir /home/vitaly/electrumx-wallet-tor/tor/
-HiddenServicePort 50001 88.99.174.169:50001
-HiddenServicePort 50002 88.99.174.169:50002
