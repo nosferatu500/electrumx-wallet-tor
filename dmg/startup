@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo tor -f /usr/local/Cellar/tor2/torrc_el_mac --RunAsDaemon 1
+
+chmod +x /Applications/Electrum-CRYP.app/Contents/MacOS/Electrum-CRYP
+
+/Applications/Electrum-CRYP.app/Contents/MacOS/Electrum-CRYP
