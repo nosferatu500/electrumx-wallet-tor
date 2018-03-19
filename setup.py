@@ -19,10 +19,10 @@ if sys.version_info[:3] < (2, 7, 0):
 data_files = []
 if platform.system() in [ 'Linux', 'FreeBSD', 'DragonFly']:
     usr_share = os.path.join(sys.prefix, "share")
-data_files += [
-    (os.path.join(usr_share, 'applications/'), ['electrum-xvg.desktop']),
-    (os.path.join(usr_share, 'pixmaps/'), ['icons/electrum-xvg.png'])
-]
+    data_files += [
+        (os.path.join(usr_share, 'applications/'), ['electrum-xvg.desktop']),
+        (os.path.join(usr_share, 'pixmaps/'), ['icons/electrum-xvg.png'])
+    ]
 
 
 setup(

@@ -20,3 +20,4 @@ tor/Tor
 tor/Data
 *.egg-info
 log.txt
+.DS_Store
