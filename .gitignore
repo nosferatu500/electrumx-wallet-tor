@@ -1,6 +1,7 @@
 ####-*.patch
 gui/icons_rc.py
 lib/icons_rc.py
+virt-electrum/
 *.pyc
 *.swp
 build/
