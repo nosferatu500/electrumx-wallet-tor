@@ -24,5 +24,6 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/electrum-cryp-0.1.1
 
 %post
+bash  /usr/bin/electrum-cryp-0.1.1/post_install
 echo " "
 echo "Instalation complete."
