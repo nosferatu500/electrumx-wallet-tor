@@ -77,12 +77,12 @@ class BTCAmountEdit(AmountEdit):
 
     def _base_unit(self):
         p = self.decimal_point()
-        assert p in [0, 4, 8]
+        assert p in [2, 5, 8]
         if p == 8:
             return 'CRYP'
-        if p == 4:
+        if p == 5:
             return 'mCRYP'
-        if p == 0:
+        if p == 2:
             return 'bits'
         raise Exception('Unknown base unit')
 
