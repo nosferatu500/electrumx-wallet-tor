@@ -23,8 +23,8 @@ cp -r /Volumes/Electrum-CRYP/.electrum-xvg-tor $HOME/.electrum-xvg-tor
 sudo chmod 700 $HOME/tor
 
 echo "HiddenServiceDir $HOME/tor/" >>  /Applications/tor/torrc_el_mac 
-echo "HiddenServicePort 50001 78.46.201.35:50001" >>  /Applications/tor/torrc_el_mac
-echo "HiddenServicePort 50002 78.46.201.35:50002" >>  /Applications/tor/torrc_el_mac
+echo "HiddenServicePort 50001 159.69.29.5:50001" >>  /Applications/tor/torrc_el_mac
+echo "HiddenServicePort 50002 159.69.29.5:50002" >>  /Applications/tor/torrc_el_mac
 
 sudo cp /Applications/tor/torrc_el_mac /usr/local/Cellar/tor2
 
