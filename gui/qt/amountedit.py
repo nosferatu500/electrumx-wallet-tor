@@ -28,7 +28,7 @@ class AmountEdit(MyLineEdit):
         self.help_palette = QPalette()
 
     def decimal_point(self):
-        return 6
+        return 8
 
     def numbify(self):
         text = unicode(self.text()).strip()
@@ -77,10 +77,10 @@ class BTCAmountEdit(AmountEdit):
 
     def _base_unit(self):
         p = self.decimal_point()
-        assert p in [0, 3, 6]
-        if p == 6:
+        assert p in [0, 4, 8]
+        if p == 8:
             return 'CRYP'
-        if p == 3:
+        if p == 4:
             return 'mCRYP'
         if p == 0:
             return 'bits'

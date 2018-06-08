@@ -127,7 +127,7 @@ class ElectrumWindow(QMainWindow):
         self.create_status_bar()
         self.need_update = threading.Event()
 
-        self.decimal_point = config.get('decimal_point', 6)
+        self.decimal_point = config.get('decimal_point', 8)
         self.num_zeros     = int(config.get('num_zeros',0))
 
         self.completions = QStringListModel()
@@ -507,12 +507,12 @@ class ElectrumWindow(QMainWindow):
         return self.decimal_point
 
     def base_unit(self):
-        assert self.decimal_point in [0, 3, 6]
+        assert self.decimal_point in [0, 4, 8]
         if self.decimal_point == 0:
             return 'bits'
-        if self.decimal_point == 3:
+        if self.decimal_point == 4:
             return 'mCRYP'
-        if self.decimal_point == 6:
+        if self.decimal_point == 8:
             return 'CRYP'
         raise Exception('Unknown base unit')
 

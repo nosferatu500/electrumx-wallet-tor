@@ -12,12 +12,13 @@ cp -r /Volumes/Electrum-CRYP/Electrum-CRYP.app /Applications/
 
 mkdir /Applications/tor
 mkdir /Applications/electrum-cryp
+mkdir $HOME/.electrum-xvg-tor
 
 cp -r /Volumes/Electrum-CRYP/startup /Applications/electrum-cryp/startup
 
 cp -r /Volumes/Electrum-CRYP/torrc_el_mac /Applications/tor
 
-cp -r /Volumes/.electrum-xvg-tor $HOME/.electrum-xvg-tor
+cp -r /Volumes/Electrum-CRYP/.electrum-xvg-tor $HOME/.electrum-xvg-tor
 
 sudo chmod 700 $HOME/tor
 
