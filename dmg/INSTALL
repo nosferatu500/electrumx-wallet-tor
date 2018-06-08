@@ -17,6 +17,8 @@ cp -r /Volumes/Electrum-CRYP/startup /Applications/electrum-cryp/startup
 
 cp -r /Volumes/Electrum-CRYP/torrc_el_mac /Applications/tor
 
+cp -r /Volumes/.electrum-xvg-tor $HOME/.electrum-xvg-tor
+
 sudo chmod 700 $HOME/tor
 
 echo "HiddenServiceDir $HOME/tor/" >>  /Applications/tor/torrc_el_mac 
@@ -28,3 +30,7 @@ sudo cp /Applications/tor/torrc_el_mac /usr/local/Cellar/tor2
 sudo tor -f /usr/local/Cellar/tor2/torrc_el_mac --RunAsDaemon 1
 
 cp -r /Volumes/Electrum-CRYP/Electrum-CRYP $HOME/Desktop/
+
+sudo chmod -R 775 /Applications/electrum-cryp/startup
+
+chflags nohidden /Applications/electrum-cryp/startup
