@@ -26,7 +26,7 @@ echo "HiddenServiceDir $HOME/tor/" >>  /Applications/tor/torrc_el_mac
 echo "HiddenServicePort 50001 159.69.29.5:50001" >>  /Applications/tor/torrc_el_mac
 echo "HiddenServicePort 50002 159.69.29.5:50002" >>  /Applications/tor/torrc_el_mac
 
-sudo mkdir /usr/local/Cellar/tor2/0.3.2.10/bin/
+sudo mkdir -p /usr/local/Cellar/tor2/0.3.2.10/bin/
 
 sudo rm -rf /usr/local/Cellar/tor2/torrc_el_mac
 
