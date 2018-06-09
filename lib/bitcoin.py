@@ -31,10 +31,10 @@ import aes
 ################################## transactions
 
 DUST_THRESHOLD = 0
-MIN_RELAY_TX_FEE = 100000
-RECOMMENDED_FEE = 100000
+MIN_RELAY_TX_FEE = 10000000
+RECOMMENDED_FEE = 10000000
 COINBASE_MATURITY = 100
-COIN = 100000000
+COIN = 10000000000
 
 # AES encryption
 EncodeAES = lambda secret, s: base64.b64encode(aes.encryptData(secret,s))

@@ -1211,7 +1211,7 @@ class ElectrumWindow(QMainWindow):
             if not self.question(_("A fee of %(fee)s will be added to this transaction.\nProceed?")%{ 'fee' : self.format_amount(fee) + ' '+ self.base_unit()}):
                 return
         else:
-            confirm_fee = self.config.get('confirm_fee', 1000000)
+            confirm_fee = self.config.get('confirm_fee', 100000000)
             if fee >= confirm_fee:
                 if not self.question(_("The fee for this transaction seems unusually high.\nAre you really sure you want to pay %(fee)s in fees?")%{ 'fee' : self.format_amount(fee) + ' '+ self.base_unit()}):
                     return

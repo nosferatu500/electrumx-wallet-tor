@@ -12,7 +12,7 @@ from electrum_xvg import paymentrequest_pb2 as pb2
 
 chain_file = 'mychain.pem'
 cert_file = 'mycert.pem'
-amount = 1000000
+amount = 100000000
 address = "DPNC2H2pYUCSebQ992GyeRTRuWw3hCTBwD"
 memo = "blah"
 out_file = "payreq"

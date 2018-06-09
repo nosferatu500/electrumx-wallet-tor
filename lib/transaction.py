@@ -807,7 +807,7 @@ class Transaction:
             return True
         # all outputs must be 0.01 BTC or larger for free tx
         for addr, value in self.get_outputs():
-            if value < 1000000:
+            if value < 100000000:
                 return True
         # priority must be large enough for free tx
         threshold = 57600000
