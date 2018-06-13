@@ -11,8 +11,8 @@ sudo cp -r /var/lib/tor /var/lib/tor2
 cp -r /usr/bin/electrum-cryp/tor $HOME/
 
 echo "HiddenServiceDir $HOME/tor/" >>  /usr/bin/electrum-cryp/torrc_el 
-echo "HiddenServicePort 50001 88.99.174.169:50001" >>  /usr/bin/electrum-cryp/torrc_el 
-echo "HiddenServicePort 50002 88.99.174.169:50002" >>  /usr/bin/electrum-cryp/torrc_el 
+echo "HiddenServicePort 50001 159.69.29.5:50001" >>  /usr/bin/electrum-cryp/torrc_el 
+echo "HiddenServicePort 50002 159.69.29.5:50002" >>  /usr/bin/electrum-cryp/torrc_el 
 
 cp /usr/bin/electrum-cryp/torrc_el /etc/tor
 
