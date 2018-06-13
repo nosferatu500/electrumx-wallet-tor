@@ -76,7 +76,7 @@ Section
   CreateShortCut "$SMPROGRAMS\Electrum\Electrum.lnk" "$INSTDIR\electrum-xvg.exe" "" "$INSTDIR\electrum-xvg.exe" 0
 
   CopyFiles "$INSTDIR\torrc" "$PROFILE\AppData\Roaming\tor\torrc"
-  Exec "$INSTDIR\tor\Tor\tor.exe --service install"
+  Exec "$INSTDIR\tor\Tor\tor.exe --service install --options -f C:\Program Files (x86)\Electrum\torrc"
   Exec "$INSTDIR\tor\Tor\tor.exe --service start"
 
 SectionEnd
