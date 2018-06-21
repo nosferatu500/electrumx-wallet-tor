@@ -204,12 +204,12 @@ def time_difference(distance_in_time, include_seconds):
         return "over %d years" % (round(distance_in_minutes / 525600))
 
 block_explorer_info = {
-    'CrypricCoin Onion Explorer': ('http://dvzs4zoxkg6z43dd.onion/',
+    'CrypticCoin Explorer': ('http://159.69.29.5:3001/',
                         {'tx': 'tx', 'addr': 'address'}),
 }
 
 def block_explorer(config):
-    return config.get('block_explorer', 'dvzs4zoxkg6z43dd.onion')
+    return config.get('block_explorer', '159.69.29.5:3001')
 
 def block_explorer_tuple(config):
     return block_explorer_info.get(block_explorer(config))

@@ -427,7 +427,7 @@ class ElectrumWindow(QMainWindow):
 
     def show_about(self):
         QMessageBox.about(self, "Electrum-CRYP",
-            _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" + _("Electrum's focus is speed, with low resource usage and simplifying CrypricCoin. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the CrypricCoin system."))
+            _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" + _("Electrum's focus is speed, with low resource usage and simplifying CrypticCoin. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the CrypticCoin system."))
 
     def show_report_bug(self):
         QMessageBox.information(self, "Electrum-CRYP - " + _("Reporting Bugs"),
@@ -601,7 +601,7 @@ class ElectrumWindow(QMainWindow):
         self.receive_address_e = ButtonsLineEdit()
         self.receive_address_e.addCopyButton(self.app)
         self.receive_address_e.setReadOnly(True)
-        msg = _('CrypricCoin address where the payment should be received. Note that each payment request uses a different CrypricCoin address.')
+        msg = _('CrypticCoin address where the payment should be received. Note that each payment request uses a different CrypticCoin address.')
         self.receive_address_label = HelpLabel(_('Receiving address'), msg)
         self.receive_address_e.textChanged.connect(self.update_receive_qr)
         self.receive_address_e.setFocusPolicy(Qt.NoFocus)
@@ -624,7 +624,7 @@ class ElectrumWindow(QMainWindow):
         msg = ' '.join([
             _('Expiration date of your request.'),
             _('This information is seen by the recipient if you send them a signed payment request.'),
-            _('Expired requests have to be deleted manually from your list, in order to free the corresponding CrypricCoin addresses'),
+            _('Expired requests have to be deleted manually from your list, in order to free the corresponding CrypticCoin addresses'),
         ])
         grid.addWidget(HelpLabel(_('Expires in'), msg), 3, 0)
         grid.addWidget(self.expires_combo, 3, 1)
@@ -924,7 +924,7 @@ class ElectrumWindow(QMainWindow):
         self.amount_e = BTCAmountEdit(self.get_decimal_point)
         self.payto_e = PayToEdit(self)
         msg = _('Recipient of the funds.') + '\n\n'\
-              + _('You may enter a CrypricCoin address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a CrypricCoin address)')
+              + _('You may enter a CrypticCoin address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a CrypticCoin address)')
         payto_label = HelpLabel(_('Pay to'), msg)
         grid.addWidget(payto_label, 1, 0)
         grid.addWidget(self.payto_e, 1, 1, 1, 3)
@@ -957,7 +957,7 @@ class ElectrumWindow(QMainWindow):
         grid.addWidget(amount_label, 4, 0)
         grid.addWidget(self.amount_e, 4, 1, 1, 2)
 
-        msg = _('CrypricCoin transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
+        msg = _('CrypticCoin transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
               + _('The amount of fee can be decided freely by the sender. However, transactions with low fees take more time to be processed.') + '\n\n'\
               + _('A suggested fee is automatically added to this field. You may override it. The suggested fee increases with the size of the transaction.')
         self.fee_e_label = HelpLabel(_('Fee'), msg)
@@ -1162,10 +1162,10 @@ class ElectrumWindow(QMainWindow):
 
         for _type, addr, amount in outputs:
             if addr is None:
-                QMessageBox.warning(self, _('Error'), _('CrypricCoin Address is None'), _('OK'))
+                QMessageBox.warning(self, _('Error'), _('CrypticCoin Address is None'), _('OK'))
                 return
             if _type == 'address' and not bitcoin.is_address(addr):
-                QMessageBox.warning(self, _('Error'), _('Invalid CrypricCoin Address'), _('OK'))
+                QMessageBox.warning(self, _('Error'), _('Invalid CrypticCoin Address'), _('OK'))
                 return
             if amount is None:
                 QMessageBox.warning(self, _('Error'), _('Invalid Amount'), _('OK'))
@@ -1340,7 +1340,7 @@ class ElectrumWindow(QMainWindow):
         try:
             out = util.parse_URI(unicode(URI))
         except Exception as e:
-            QMessageBox.warning(self, _('Error'), _('Invalid CrypricCoin URI:') + '\n' + str(e), _('OK'))
+            QMessageBox.warning(self, _('Error'), _('Invalid CrypticCoin URI:') + '\n' + str(e), _('OK'))
             return
         self.tabs.setCurrentIndex(1)
 

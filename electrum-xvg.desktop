@@ -2,16 +2,16 @@
 # sudo desktop-file-install electrum-xvg-tor.desktop
 
 [Desktop Entry]
-Comment=Lightweight CrypricCoin Tor Client
+Comment=Lightweight CrypticCoin Tor Client
 Exec=/usr/bin/electrum-cryp-0.1.1/electrum-xvg
 GenericName[en_US]=Electrum-CRYP-Tor
 GenericName=Electrum-CRYP
 Icon=/usr/bin/electrum-cryp-0.1.1/electrum.ico
-Name[en_US]=Electrum CrypricCoin Tor Wallet
-Name=Electrum CrypricCoin Wallet
+Name[en_US]=Electrum CrypticCoin Tor Wallet
+Name=Electrum CrypticCoin Wallet
 Categories=Network;
 StartupNotify=false
 Terminal=false
 Type=Application
-MimeType=x-scheme-handler/CrypricCoin;
+MimeType=x-scheme-handler/CrypticCoin;
 

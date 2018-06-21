@@ -4,7 +4,7 @@ Isolate your private guys in a offline VM (cold storage) in Qubes OS
 ## Create a cold/offline wallet
 
 1. Clone the Debian template by running **qvm-clone debian-8 debian-8-xvg** in dom0
-2. Run the debian-8-xvg template and download the CrypricCoin Electrum wallet 
+2. Run the debian-8-xvg template and download the CrypticCoin Electrum wallet 
 https://github.com/nosferatu500/electrumx-wallet-tor#1a-getting-started-with-ubuntulinux
 
 3. Create a new AppVM by running **qvm-create -t debian-8-xvg -l black offline-cryticcoin** and **qvm-prefs -s offline-xvg netvm none** in dom0
@@ -19,5 +19,5 @@ https://github.com/nosferatu500/electrumx-wallet-tor#1a-getting-started-with-ubu
 
 ### Important
 The private keys should **never** leave the offline-xvg AppVM.
-If you want to send your CrypricCoin, you should create a new AppVM using the debian-8-xvg template, create a wallet with your existing seeds from the offline wallet.
+If you want to send your CrypticCoin, you should create a new AppVM using the debian-8-xvg template, create a wallet with your existing seeds from the offline wallet.
 **Note:** Delete this AppVM after sending your coins.

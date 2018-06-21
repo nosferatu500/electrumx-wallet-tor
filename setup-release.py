@@ -1,5 +1,5 @@
 """
-py2app/py2exe build script for Electrum CrypricCoin
+py2app/py2exe build script for Electrum CrypticCoin
 
 Usage (Mac OS X):
      python setup.py py2app

@@ -62,10 +62,10 @@ setup(
     },
     scripts=['electrum-xvg'],
     data_files=data_files,
-    description="Lightweight CrypricCoin TOR Wallet",
+    description="Lightweight CrypticCoin TOR Wallet",
     author="cryp",
     author_email="twitter.com/CrypticCoin_io",
     license="GNU GPLv3",
     url="https://crypticcoin.io",
-    long_description="""Lightweight CrypricCoin Wallet"""
+    long_description="""Lightweight CrypticCoin Wallet"""
 )

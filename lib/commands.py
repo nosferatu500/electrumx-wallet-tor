@@ -600,8 +600,8 @@ class Commands:
 
 param_descriptions = {
     'privkey': 'Private key. Type \'?\' to get a prompt.',
-    'destination': 'CrypricCoin address, contact or alias',
-    'address': 'CrypricCoin address',
+    'destination': 'CrypticCoin address, contact or alias',
+    'address': 'CrypticCoin address',
     'seed': 'Seed phrase',
     'txid': 'Transaction ID',
     'pos': 'Position',
@@ -617,7 +617,7 @@ param_descriptions = {
 }
 
 command_options = {
-    'broadcast':   (None, "--broadcast",   "Broadcast the transaction to the CrypricCoin network"),
+    'broadcast':   (None, "--broadcast",   "Broadcast the transaction to the CrypticCoin network"),
     'password':    ("-W", "--password",    "Password"),
     'concealed':   ("-C", "--concealed",   "Don't echo seed to console when restoring"),
     'receiving':   (None, "--receiving",   "Show only receiving addresses"),

@@ -1,6 +1,6 @@
 Electrum-CRYP for TOR - 
 ------------------------------------------------
-lightweight CrypricCoin client for connecting 
+lightweight CrypticCoin client for connecting 
 ------------------------------------------------
 to the CRYP Tor Electrum Server
 ------------------------------------------------
