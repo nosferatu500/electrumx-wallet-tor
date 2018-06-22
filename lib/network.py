@@ -15,6 +15,9 @@ import interface
 from blockchain import Blockchain
 from collections import deque
 
+import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
+
 DEFAULT_PORTS = {'t':'50001', 's':'50002', 'h':'8081', 'g':'8082'}
 
 DEFAULT_SERVERS = {
@@ -397,6 +400,7 @@ class Network(util.DaemonThread):
         self.notify('interfaces')
 
     def process_response(self, i, response):
+        logging.debug("process_response")
         # the id comes from the daemon or the network proxy
         _id = response.get('id')
         if _id is not None:
@@ -405,7 +409,11 @@ class Network(util.DaemonThread):
             self.unanswered_requests.pop(_id)
 
         method = response.get('method')
+        
+        logging.debug("method %s", method)
+        
         result = response.get('result')
+        
         if method == 'blockchain.headers.subscribe':
             self.on_header(i, response)
         elif method == 'server.peers.subscribe':
@@ -501,6 +509,10 @@ class Network(util.DaemonThread):
         data['chunk_idx'] = idx
         data['req_time'] = time.time()
 
+        logging.debug("chunk_idx %s", idx)
+        logging.debug("req_time %s", time.time())
+        logging.debug("interface.send_request %s", interface.send_request({'method':'blockchain.block.get_chunk', 'params':[idx]}))
+
     def on_get_chunk(self, interface, response):
         '''Handle receiving a chunk of block headers'''
         if self.bc_requests:
@@ -516,6 +528,7 @@ class Network(util.DaemonThread):
                     self.request_chunk(interface, data, idx)
 
     def request_header(self, interface, data, height):
+        logging.debug("request_header")
         interface.print_error("requesting header %d" % height)
         interface.send_request({'method':'blockchain.block.get_header', 'params':[height]})
         data['header_height'] = height
@@ -524,6 +537,7 @@ class Network(util.DaemonThread):
             data['chain'] = []
 
     def on_get_header(self, interface, response):
+        logging.debug("on_get_header")
         '''Handle receiving a single block header'''
         if self.bc_requests:
             req_if, data = self.bc_requests[0]
@@ -546,10 +560,13 @@ class Network(util.DaemonThread):
         '''Send a request for the next header, or a chunk of them, if necessary'''
         local_height, if_height = self.get_local_height(), data['if_height']
         if if_height <= local_height:
+            logging.debug("if_height <= local_height")
             return False
         elif if_height > local_height + 50:
+            logging.debug("if_height > local_height + 50")
             self.request_chunk(interface, data, (local_height + 1) / 2016)
         else:
+            logging.debug("bc_request_headers")
             self.request_header(interface, data, if_height)
         return True
 
@@ -619,4 +636,5 @@ class Network(util.DaemonThread):
         return self.blockchain.read_header(tx_height)
 
     def get_local_height(self):
+        logging.debug("self.blockchain.height %s", self.blockchain.height())
         return self.blockchain.height()

@@ -43,7 +43,8 @@ from mnemonic import Mnemonic
 
 import paymentrequest
 
-
+import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
 
 # internal ID for imported account
 IMPORTED_ACCOUNT = '/x'
@@ -420,8 +421,11 @@ class Abstract_Wallet(object):
         if tx_height > 0:
             with self.lock:
                 self.unverified_tx[tx_hash] = tx_height
+                logging.debug("tx_height")
+                logging.debug(tx_height)
 
     def add_verified_tx(self, tx_hash, info):
+        logging.debug("add_verified_tx")
         with self.lock:
             self.verified_tx[tx_hash] = info  # (tx_height, timestamp, pos)
         self.storage.put('verified_tx3', self.verified_tx, True)
@@ -433,8 +437,15 @@ class Abstract_Wallet(object):
         with self.lock:
             for tx_hash, tx_height in self.unverified_tx.items():
                 # do not request merkle branch before headers are available
+                logging.debug("tx_height", tx_height)
+                logging.debug(tx_height)
+                logging.debug("self.get_local_height()")
+                logging.debug(self.get_local_height())
                 if tx_hash not in self.verified_tx and tx_height <= self.get_local_height():
                     txs.append((tx_hash, tx_height))
+        
+        logging.debug("txs")
+        logging.debug(txs)
         return txs
 
     def undo_verifications(self, height):
@@ -460,6 +471,7 @@ class Abstract_Wallet(object):
                 conf = (self.get_local_height() - height + 1)
                 if conf <= 0: timestamp = None
             elif tx in self.unverified_tx:
+                logging.debug("hereeeeee")
                 conf = -1
                 timestamp = None
             else:
@@ -784,6 +796,8 @@ class Abstract_Wallet(object):
 
         with self.lock:
             old_hist = self.history.get(addr, [])
+            logging.debug("old_hist")
+            logging.debug(old_hist)
             for tx_hash, height in old_hist:
                 if (tx_hash, height) not in hist:
                     # remove tx if it's not referenced in histories
@@ -793,6 +807,9 @@ class Abstract_Wallet(object):
 
             self.history[addr] = hist
             self.storage.put('addr_history', self.history, True)
+
+        logging.debug("hist")
+        logging.debug(hist)
 
         for tx_hash, tx_height in hist:
             # add it in case it was previously unconfirmed
@@ -830,6 +847,12 @@ class Abstract_Wallet(object):
         history = []
         for tx_hash, delta in tx_deltas.items():
             conf, timestamp = self.get_confirmations(tx_hash)
+            logging.debug("tx_hash")
+            logging.debug(tx_hash)
+            logging.debug("conf")
+            logging.debug(conf)
+            logging.debug("timestamp")
+            logging.debug(timestamp)
             history.append((tx_hash, conf, delta, timestamp))
         history.sort(key = lambda x: self.get_txpos(x[0]))
         history.reverse()
@@ -1069,6 +1092,8 @@ class Abstract_Wallet(object):
 
         # review transactions that are in the history
         for addr, hist in self.history.items():
+            logging.debug("hist")
+            logging.debug(hist)
             for tx_hash, tx_height in hist:
                 # add it in case it was previously unconfirmed
                 self.add_unverified_tx (tx_hash, tx_height)

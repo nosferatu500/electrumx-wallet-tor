@@ -37,6 +37,9 @@ import PyQt4.QtCore as QtCore
 from util import *
 from history_widget import HistoryWidget
 
+import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
+
 class AddressDialog(QDialog):
 
     def __init__(self, address, parent):
@@ -70,6 +73,8 @@ class AddressDialog(QDialog):
         self.format_amount = self.parent.format_amount
 
         h = self.wallet.get_history([self.address])
+        logging.debug("here")
+        logging.debug(h)
         self.hw.update(h)
 
 

@@ -28,6 +28,8 @@ except ImportError:
     print_msg("Warning: ltc_scrypt not available, using fallback")		
     from scrypt import scrypt_1024_1_1_80 as getPoWHash
 
+import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
 
 class Blockchain():
     '''Manages blockchain headers and their verification'''
@@ -42,6 +44,7 @@ class Blockchain():
         util.print_error("[blockchain]", *msg)
 
     def height(self):
+        logging.debug("self.local_height %s", self.local_height)
         return self.local_height
 
     def init(self):
@@ -231,6 +234,7 @@ class Blockchain():
         return new_bits, new_target
 
     def connect_header(self, chain, header):
+        logging.debug("connect_header")
         '''Builds a header chain until it connects.  Returns True if it has
         successfully connected, False if verification failed, otherwise the
         height of the next header needed.'''

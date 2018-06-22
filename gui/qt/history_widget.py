@@ -24,6 +24,8 @@ from electrum_xvg.i18n import _
 from electrum_xvg.util import block_explorer_URL, format_satoshis, format_time
 from electrum_xvg.plugins import run_hook
 
+import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
 
 class HistoryWidget(MyTreeWidget):
 
@@ -39,6 +41,8 @@ class HistoryWidget(MyTreeWidget):
         self.clear()
         for item in h:
             tx_hash, conf, value, timestamp, balance = item
+            logging.debug(h)
+
             time_str = _("unknown")
             if conf is None and timestamp is None:
                 continue  # skip history in offline mode
