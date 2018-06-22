@@ -41,7 +41,6 @@ class HistoryWidget(MyTreeWidget):
         self.clear()
         for item in h:
             tx_hash, conf, value, timestamp, balance = item
-            logging.debug(h)
 
             time_str = _("unknown")
             if conf is None and timestamp is None:

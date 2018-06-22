@@ -73,8 +73,6 @@ class AddressDialog(QDialog):
         self.format_amount = self.parent.format_amount
 
         h = self.wallet.get_history([self.address])
-        logging.debug("here")
-        logging.debug(h)
         self.hw.update(h)
 
 

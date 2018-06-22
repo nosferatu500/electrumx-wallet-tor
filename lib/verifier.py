@@ -38,45 +38,30 @@ class SPV(util.DaemonThread):
         self.queue = Queue.Queue()
 
     def run(self):
-        logging.debug("run")
         requested_merkle = set()
         while self.is_running():
             unverified = self.wallet.get_unverified_txs()
-            logging.debug("unverified")
-            logging.debug(unverified)
             for (tx_hash, tx_height) in unverified:
                 if self.merkle_roots.get(tx_hash) is None and tx_hash not in requested_merkle:
                     if self.network.send([ ('blockchain.transaction.get_merkle',[tx_hash, tx_height]) ], self.queue.put):
-                        logging.debug("('blockchain.transaction.get_merkle',[tx_hash, tx_height])")
                         self.print_error('requesting merkle', tx_hash)
                         requested_merkle.add(tx_hash)
             
-            logging.debug("try")
-            
             try:
                 r = self.queue.get(timeout=10)
-                logging.debug("self.queue.get(timeout=0.1)")
-                logging.debug(r)
             except Queue.Empty:
-                logging.debug("Queue.Empty")
                 continue
             if not r:
-                logging.debug("rrrr")
-                logging.debug(r)
                 continue
 
             if r.get('error'):
                 self.print_error('Verifier received an error:', r)
-                logging.debug("Verifier received an error:")
-                logging.debug(r)
                 continue
 
             # 3. handle response
             method = r['method']
             params = r['params']
             result = r['result']
-
-            logging.debug("method")
 
             if method == 'blockchain.transaction.get_merkle':
                 tx_hash = params[0]
@@ -86,7 +71,6 @@ class SPV(util.DaemonThread):
 
 
     def verify_merkle(self, tx_hash, result):
-        logging.debug("verify_merkle")
         tx_height = result.get('block_height')
         pos = result.get('pos')
         merkle_root = self.hash_merkle_root(result['merkle'], tx_hash, pos)

@@ -400,7 +400,6 @@ class Network(util.DaemonThread):
         self.notify('interfaces')
 
     def process_response(self, i, response):
-        logging.debug("process_response")
         # the id comes from the daemon or the network proxy
         _id = response.get('id')
         if _id is not None:
@@ -409,8 +408,6 @@ class Network(util.DaemonThread):
             self.unanswered_requests.pop(_id)
 
         method = response.get('method')
-        
-        logging.debug("method %s", method)
         
         result = response.get('result')
         
@@ -509,32 +506,39 @@ class Network(util.DaemonThread):
         data['chunk_idx'] = idx
         data['req_time'] = time.time()
 
-        logging.debug("chunk_idx %s", idx)
-        logging.debug("req_time %s", time.time())
-        logging.debug("interface.send_request %s", interface.send_request({'method':'blockchain.block.get_chunk', 'params':[idx]}))
-
     def on_get_chunk(self, interface, response):
         '''Handle receiving a chunk of block headers'''
+
+        
+
         if self.bc_requests:
             req_if, data = self.bc_requests[0]
             req_idx = data.get('chunk_idx')
             # Ignore unsolicited chunks
             if req_if == interface and req_idx == response['params'][0]:
                 idx = self.blockchain.connect_chunk(req_idx, response['result'])
+                
+                logging.debug("req_idx %s", req_idx)
+                logging.debug("idx %s", idx)
                 # If not finished, get the next chunk
                 if idx < 0 or self.get_local_height() >= data['if_height']:
+                    logging.debug("idx < 0 %s", idx < 0)
+                    logging.debug("self.get_local_height() %s", self.get_local_height())
+                    logging.debug("data['if_height'] %s", data['if_height'])
                     self.bc_requests.popleft()
                 else:
                     self.request_chunk(interface, data, idx)
 
     def request_header(self, interface, data, height):
-        logging.debug("request_header")
         interface.print_error("requesting header %d" % height)
         interface.send_request({'method':'blockchain.block.get_header', 'params':[height]})
         data['header_height'] = height
         data['req_time'] = time.time()
         if not 'chain' in data:
             data['chain'] = []
+        
+        logging.debug("header_height %s", height)
+        logging.debug("req_time %s", time.time())
 
     def on_get_header(self, interface, response):
         logging.debug("on_get_header")
@@ -562,9 +566,10 @@ class Network(util.DaemonThread):
         if if_height <= local_height:
             logging.debug("if_height <= local_height")
             return False
-        elif if_height > local_height + 50:
-            logging.debug("if_height > local_height + 50")
-            self.request_chunk(interface, data, (local_height + 1) / 2016)
+        #elif if_height > local_height + 50:
+        #    logging.debug("if_height, %s", if_height)
+        #    logging.debug("local_height, %s", local_height)
+        #    self.request_chunk(interface, data, (local_height + 1) / 2016)
         else:
             logging.debug("bc_request_headers")
             self.request_header(interface, data, if_height)
@@ -590,7 +595,9 @@ class Network(util.DaemonThread):
                 interface.stop()
                 continue
             # Put updated request state back at head of deque
+            #logging.debug("data %s", data)
             self.bc_requests.appendleft((interface, data))
+            #logging.debug("self.bc_requests %s", self.bc_requests)
             break
 
     def run(self):

@@ -592,12 +592,6 @@ class ElectrumWindow(QMainWindow):
     def update_history_tab(self):
         domain = self.wallet.get_account_addresses(self.current_account)
         h = self.wallet.get_history(domain)
-        logging.debug("h")
-        logging.debug(h)
-        logging.debug("domain")
-        logging.debug(domain)
-        logging.debug("self.current_account")
-        logging.debug(self.current_account)
         self.history_list.update(h)
 
     def create_receive_tab(self):
