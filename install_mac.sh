@@ -41,5 +41,5 @@ sudo cp torrc_el_mac /usr/local/Cellar/tor2
 
 sudo tor -f /usr/local/Cellar/tor2/torrc_el_mac --RunAsDaemon 1
 
-./electrum-xvg
+./electrum-cryp
 

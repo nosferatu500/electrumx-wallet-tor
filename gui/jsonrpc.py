@@ -25,8 +25,8 @@ may be called from your php script.
 import socket, os
 from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
 
-from electrum_xvg.wallet import WalletStorage, Wallet
-from electrum_xvg.commands import known_commands, Commands
+from electrum_cryp.wallet import WalletStorage, Wallet
+from electrum_cryp.commands import known_commands, Commands
 
 
 class ElectrumGui:

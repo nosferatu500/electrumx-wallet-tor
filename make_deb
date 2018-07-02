@@ -3,7 +3,7 @@
 
 with data:
 
-Package: electrum-xvg-test
+Package: electrum-cryp-test
 Version: 0.0.1
 Maintainer: Vitaly Shvetsov <nosferatu2995@mail.ru>
 Architecture: all

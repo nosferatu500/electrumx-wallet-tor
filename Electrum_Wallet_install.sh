@@ -36,11 +36,11 @@ sudo cp torrc_el /etc/tor
 
 pyrcc4 icons.qrc -o gui/qt/icons_rc.py
 
-chmod 775 electrum-xvg
+chmod 775 electrum-cryp
 
-sudo cp -r .electrum-xvg-tor $HOME
+sudo cp -r .electrum-cryp-tor $HOME
 
-sudo chown -R $USER:$USER $HOME/.electrum-xvg-tor/
+sudo chown -R $USER:$USER $HOME/.electrum-cryp-tor/
 
 sudo tor -f /etc/tor/torrc_el --RunAsDaemon 1
 
@@ -59,4 +59,4 @@ sudo sed -n '1p' tor/hostname
 # Use upper line for  connect to server'
 
 
-./electrum-xvg
+./electrum-cryp

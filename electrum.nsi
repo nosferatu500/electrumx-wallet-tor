@@ -59,7 +59,7 @@ Section
   SetOutPath "$INSTDIR"
 
   ;ADD YOUR OWN FILES HERE...
-  file /r build\electrum-xvg\*.*
+  file /r build\electrum-cryp\*.*
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Electrum" "" $INSTDIR

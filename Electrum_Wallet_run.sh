@@ -15,5 +15,5 @@ sudo sed -n '1p' tor/hostname
 # Use upper line for  connect to server'
 
 
-./electrum-xvg
+./electrum-cryp
 

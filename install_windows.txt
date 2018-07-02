@@ -7,7 +7,7 @@
 3) python -m pip install protobuf dnspython pbkdf2 tlslite qrcode six requests ecdsa slowaes
 4) python -m pip install PyQt4-4.11.4-cp27-cp27m* file
 5) pyrcc4 icons.qrc -o gui/qt/icons_rc.py
-6) python .\electrum-xvg
+6) python .\electrum-cryp
 
 
 7) https://www.torproject.org/dist/torbrowser/7.5/tor-win32-0.3.2.9.zip

@@ -1,9 +1,9 @@
 # If you want electrum to appear in a linux app launcher ("start menu"), install this by doing:
-# sudo desktop-file-install electrum-xvg-tor.desktop
+# sudo desktop-file-install electrum-cryp-tor.desktop
 
 [Desktop Entry]
 Comment=Lightweight CrypticCoin Tor Client
-Exec=/usr/bin/electrum-cryp-0.1.1/electrum-xvg
+Exec=/usr/bin/electrum-cryp-0.1.1/electrum-cryp
 GenericName[en_US]=Electrum-CRYP-Tor
 GenericName=Electrum-CRYP
 Icon=/usr/bin/electrum-cryp-0.1.1/electrum.ico

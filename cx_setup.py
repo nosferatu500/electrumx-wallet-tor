@@ -12,18 +12,18 @@ is_android = 'ANDROID_DATA' in os.environ
 
 if is_bundle or is_local or is_android:
     import imp
-    imp.load_module('electrum_xvg', *imp.find_module('lib'))
+    imp.load_module('electrum_cryp', *imp.find_module('lib'))
 
-from electrum_xvg.version import ELECTRUM_VERSION
+from electrum_cryp.version import ELECTRUM_VERSION
 
-buildOptions = dict(packages = ["idna","shutil","ltc_scrypt","argparse","dns", "lib", "gui","dbhash","dumbdbm","ConfigParser","mmap","plugins"], excludes = [], include_files=["lib", "tor", "torrc", "electrum-xvg.conf"])
+buildOptions = dict(packages = ["idna","shutil","ltc_scrypt","argparse","dns", "lib", "gui","dbhash","dumbdbm","ConfigParser","mmap","plugins"], excludes = [], include_files=["lib", "tor", "torrc", "electrum-cryp.conf"])
  
 base = None
 if sys.platform=='win32':
     base = 'Win32GUI'
  
 executables = [
-    Executable('electrum-xvg', base=base, icon = "./icons/electrum.ico")
+    Executable('electrum-cryp', base=base, icon = "./icons/electrum.ico")
 ]
  
 setup(

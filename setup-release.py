@@ -19,7 +19,7 @@ from lib.version import ELECTRUM_VERSION as version
 
 
 name = "Electrum-CRYP"
-mainscript = 'electrum-xvg'
+mainscript = 'electrum-cryp'
 
 if sys.version_info[:3] < (2, 6, 0):
     print_error("Error: " + name + " requires Python version >= 2.6.0...")

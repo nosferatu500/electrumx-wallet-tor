@@ -24,8 +24,8 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import PyQt4.QtCore as QtCore
 
-from electrum_xvg.i18n import _
-from electrum_xvg import ELECTRUM_VERSION, print_error
+from electrum_cryp.i18n import _
+from electrum_cryp import ELECTRUM_VERSION, print_error
 
 class VersionGetter(threading.Thread):
 

@@ -4,9 +4,9 @@ lightweight CrypticCoin client for connecting
 ------------------------------------------------
 to the CRYP Tor Electrum Server
 ------------------------------------------------
-![Electrum-CRYP](https://raw.githubusercontent.com/vergecurrency/electrum-xvg-tor/master/electrumlogo.png)
+![Electrum-CRYP](https://raw.githubusercontent.com/vergecurrency/electrum-cryp-tor/master/electrumlogo.png)
 
-[![Build Status](https://travis-ci.org/vergecurrency/electrum-xvg-tor.svg?branch=master)](https://travis-ci.org/vergecurrency/electrum-xvg-tor)
+[![Build Status](https://travis-ci.org/vergecurrency/electrum-cryp-tor.svg?branch=master)](https://travis-ci.org/vergecurrency/electrum-cryp-tor)
 
 Licence: GNU GPL v3
 
@@ -48,11 +48,11 @@ pyrcc4 icons.qrc -o gui/qt/icons_rc.py
 
 sudo python setup.py install
 
-chmod +x ./electrum-xvg
+chmod +x ./electrum-cryp
 
 To run Electrum from this directory, just do:
 ---------------------------------------------
-  ./electrum-xvg
+  ./electrum-cryp
 
 To start Electrum from your web browser, see
 --------------------------------------------
@@ -60,7 +60,7 @@ http://electrum-cryticcoin.xyz/cryticcoin.html
 
 To update your copy of the electrum client:
 -------------------------------------------
-cd electrum-xvg
+cd electrum-cryp
 
 git pull
 
@@ -78,7 +78,7 @@ https://github.com/nosferatu500/electrumx-wallet-tor/archive/master.zip
 
 -download python qt4: http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt4-4.11.3-gpl-Py2.7-Qt4.8.6-x64.exe
 
--then in ms visual studio command prompt, go into the directory electrum-xvg:
+-then in ms visual studio command prompt, go into the directory electrum-cryp:
 
 pyrcc4 icons.qrc -o gui/qt/icons_rc.py
 
@@ -86,7 +86,7 @@ py -m pip install pip pyasn1 pyasn1-modules pbkdf2 tlslite qrcode ecdsa ltc_scry
 
 py setup.py install
 
-py electrum-xvg
+py electrum-cryp
 
 1c) INSTALLING WITH MAC OSX
 -----------------
@@ -99,7 +99,7 @@ pip intall slowaes
 
 python setup.py build
 
-Modify electrum-xvg and change python2 to python in the first line
+Modify electrum-cryp and change python2 to python in the first line
 
 sudo python setup.py install
 
@@ -107,7 +107,7 @@ then install tor and modify the torrc file, by removing the # from in front of S
 
 restart tor, then launch wallet by 
 
-py electrum-xvg
+py electrum-cryp
 
 
 2. HOW OFFICIAL PACKAGES ARE CREATED
@@ -129,7 +129,7 @@ On Mac OS X:
   
   ARCHFLAGS="-arch i386 -arch x86_64" sudo python setup-release.py py2app --includes sip
 
-  sudo hdiutil create -fs HFS+ -volname "Electrum-CRYP" -srcfolder dist/Electrum-CRYP.app dist/electrum-xvg-VERSION-macosx.dmg
+  sudo hdiutil create -fs HFS+ -volname "Electrum-CRYP" -srcfolder dist/Electrum-CRYP.app dist/electrum-cryp-VERSION-macosx.dmg
 
 
-[![Visit our IRC Chat!](https://kiwiirc.com/buttons/irc.freenode.net/cryticcoin.png)](https://kiwiirc.com/client/irc.freenode.net/?nick=xvg|?&theme=cli#cryticcoin)
+[![Visit our IRC Chat!](https://kiwiirc.com/buttons/irc.freenode.net/cryticcoin.png)](https://kiwiirc.com/client/irc.freenode.net/?nick=cryp|?&theme=cli#cryticcoin)

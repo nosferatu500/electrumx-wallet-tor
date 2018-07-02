@@ -11,10 +11,10 @@ import re
 from ssl import SSLError
 from decimal import Decimal
 
-from electrum_xvg.plugins import BasePlugin, hook
-from electrum_xvg.i18n import _
-from electrum_xvg_gui.qt.util import *
-from electrum_xvg_gui.qt.amountedit import AmountEdit
+from electrum_cryp.plugins import BasePlugin, hook
+from electrum_cryp.i18n import _
+from electrum_cryp_gui.qt.util import *
+from electrum_cryp_gui.qt.amountedit import AmountEdit
 
 
 EXCHANGES = ["Bit2C",

@@ -3,21 +3,21 @@ Isolate your private guys in a offline VM (cold storage) in Qubes OS
 
 ## Create a cold/offline wallet
 
-1. Clone the Debian template by running **qvm-clone debian-8 debian-8-xvg** in dom0
-2. Run the debian-8-xvg template and download the CrypticCoin Electrum wallet 
+1. Clone the Debian template by running **qvm-clone debian-8 debian-8-cryp** in dom0
+2. Run the debian-8-cryp template and download the CrypticCoin Electrum wallet 
 https://github.com/nosferatu500/electrumx-wallet-tor#1a-getting-started-with-ubuntulinux
 
-3. Create a new AppVM by running **qvm-create -t debian-8-xvg -l black offline-cryticcoin** and **qvm-prefs -s offline-xvg netvm none** in dom0
-4. Run the offline-xvg AppVM and create a new wallet
+3. Create a new AppVM by running **qvm-create -t debian-8-cryp -l black offline-cryticcoin** and **qvm-prefs -s offline-cryp netvm none** in dom0
+4. Run the offline-cryp AppVM and create a new wallet
 
 
 ## Create a watch-only wallet
 
-1. Create a AppVM with the debian-8-xvg template by running **qvm-create -t debian-8-xvg -l green watching-xvg** and **qvm-prefs -s watching-xvg netvm sys-whonix** in dom0
-2. Run the watching-xvg AppVM and create a **watch-only** wallet by importing the public keys from the offline-xvg AppVM
+1. Create a AppVM with the debian-8-cryp template by running **qvm-create -t debian-8-cryp -l green watching-cryp** and **qvm-prefs -s watching-cryp netvm sys-whonix** in dom0
+2. Run the watching-cryp AppVM and create a **watch-only** wallet by importing the public keys from the offline-cryp AppVM
 
 
 ### Important
-The private keys should **never** leave the offline-xvg AppVM.
-If you want to send your CrypticCoin, you should create a new AppVM using the debian-8-xvg template, create a wallet with your existing seeds from the offline wallet.
+The private keys should **never** leave the offline-cryp AppVM.
+If you want to send your CrypticCoin, you should create a new AppVM using the debian-8-cryp template, create a wallet with your existing seeds from the offline wallet.
 **Note:** Delete this AppVM after sending your coins.

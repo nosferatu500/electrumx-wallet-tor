@@ -13,19 +13,19 @@ echo "HiddenServicePort 50002 88.99.174.169:50002" >>  /usr/bin/electrum-cryp-0.
 
 cp /usr/bin/electrum-cryp-0.1.1/torrc_el /etc/tor
 
-cp -p /usr/bin/electrum-cryp-0.1.1/electrum-xvg.conf /home/$SUDO_USER/.electrum-xvg-tor/config
+cp -p /usr/bin/electrum-cryp-0.1.1/electrum-cryp.conf /home/$SUDO_USER/.electrum-cryp-tor/config
 
-sudo chmod 700 /home/$SUDO_USER/.electrum-xvg-tor/config
+sudo chmod 700 /home/$SUDO_USER/.electrum-cryp-tor/config
 
 sudo chmod 700 /home/$SUDO_USER/tor
 
-sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.electrum-xvg-tor/config
+sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.electrum-cryp-tor/config
 sudo chown $SUDO_USER:$SUDO_USER /usr/bin/electrum-cryp-0.1.1/log.txt
 
 sudo tor -f /etc/tor/torrc_el --RunAsDaemon 1
 
-sudo cp /usr/bin/electrum-cryp-0.1.1/electrum-xvg.desktop /home/$SUDO_USER/Desktop/
+sudo cp /usr/bin/electrum-cryp-0.1.1/electrum-cryp.desktop /home/$SUDO_USER/Desktop/
 
-sudo chmod +x /home/$SUDO_USER/Desktop/electrum-xvg.desktop
+sudo chmod +x /home/$SUDO_USER/Desktop/electrum-cryp.desktop
 
 

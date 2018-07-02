@@ -16,8 +16,8 @@ set -e
 cd tmp
 
 # Download and unpack Electrum
-wget -O electrum-xvg.tgz "$ELECTRUM_URL"
-unzip electrum-xvg.tgz
+wget -O electrum-cryp.tgz "$ELECTRUM_URL"
+unzip electrum-cryp.tgz
 #mv Electrum-* electrum
 rm -rf $WINEPREFIX/drive_c/electrumx-wallet-tor-0.1.1
 cp electrumx-wallet-tor-0.1.1/LICENCE .
@@ -34,7 +34,7 @@ rm -f dist/$NAME_ROOT.exe
 rm -f dist/$NAME_ROOT-setup.exe
 
 # For building standalone compressed EXE, run:
-$PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w --onefile "C:/electrum-xvg/electrumx-wallet-tor-0.1.1"
+$PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w --onefile "C:/electrum-cryp/electrumx-wallet-tor-0.1.1"
 
 # For building uncompressed directory of dependencies, run:
 $PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii -w deterministic.spec
@@ -44,7 +44,7 @@ wine "$WINEPREFIX/drive_c/Program Files (x86)/NSIS/makensis.exe" electrum.nsi
 #wine $WINEPREFIX/drive_c/Program\ Files\ \(x86\)/NSIS/makensis.exe electrum.nsis
 
 cd dist
-mv electrum-xvg.exe $NAME_ROOT.exe
-mv electrum-xvg $NAME_ROOT
-mv electrum-xvg-setup.exe $NAME_ROOT-setup.exe
+mv electrum-cryp.exe $NAME_ROOT.exe
+mv electrum-cryp $NAME_ROOT
+mv electrum-cryp-setup.exe $NAME_ROOT-setup.exe
 zip -r $NAME_ROOT.zip $NAME_ROOT

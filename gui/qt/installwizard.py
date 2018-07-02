@@ -6,19 +6,19 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import PyQt4.QtCore as QtCore
 
-import electrum_xvg
-from electrum_xvg.i18n import _
-from electrum_xvg import Wallet
-from electrum_xvg import bitcoin
-from electrum_xvg import util
+import electrum_cryp
+from electrum_cryp.i18n import _
+from electrum_cryp import Wallet
+from electrum_cryp import bitcoin
+from electrum_cryp import util
 
 import seed_dialog
 from network_dialog import NetworkDialog
 from util import *
 from amountedit import AmountEdit
 
-from electrum_xvg.plugins import always_hook, run_hook
-from electrum_xvg.mnemonic import prepare_seed
+from electrum_cryp.plugins import always_hook, run_hook
+from electrum_cryp.mnemonic import prepare_seed
 
 MSG_ENTER_ANYTHING    = _("Please enter a seed phrase, a master key, a list of CrypticCoin addresses, or a list of private keys")
 MSG_SHOW_MPK          = _("Here is your master public key")
@@ -116,7 +116,7 @@ class InstallWizard(QDialog):
         ]
 
         for i, (wtype,name) in enumerate(self.wallet_types):
-            if not filter(lambda x:x[0]==wtype, electrum_xvg.wallet.wallet_types):
+            if not filter(lambda x:x[0]==wtype, electrum_cryp.wallet.wallet_types):
                 continue
             button = QRadioButton(gb2)
             button.setText(name)

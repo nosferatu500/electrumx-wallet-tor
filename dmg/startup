@@ -2,7 +2,7 @@
 
 sudo killall tor
 
-sudo rm -rf $HOME/.electrum-xvg-tor/blockchain_headers
+sudo rm -rf $HOME/.electrum-cryp-tor/blockchain_headers
 
 sudo tor -f /usr/local/Cellar/tor2/torrc_el_mac --RunAsDaemon 1
 

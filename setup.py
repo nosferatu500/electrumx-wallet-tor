@@ -20,8 +20,8 @@ data_files = []
 if platform.system() in [ 'Linux', 'FreeBSD', 'DragonFly']:
     usr_share = os.path.join(sys.prefix, "share")
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electrum-xvg.desktop']),
-        (os.path.join(usr_share, 'pixmaps/'), ['icons/electrum-xvg.png'])
+        (os.path.join(usr_share, 'applications/'), ['electrum-cryp.desktop']),
+        (os.path.join(usr_share, 'pixmaps/'), ['icons/electrum-cryp.png'])
     ]
 
 
@@ -40,18 +40,18 @@ setup(
         'dnspython',
     ],
     package_dir={
-        'electrum_xvg': 'lib',
-        'electrum_xvg_gui': 'gui',
-        'electrum_xvg_plugins': 'plugins',
+        'electrum_cryp': 'lib',
+        'electrum_cryp_gui': 'gui',
+        'electrum_cryp_plugins': 'plugins',
     },
-    packages=['electrum_xvg','electrum_xvg_gui','electrum_xvg_gui.qt','electrum_xvg_plugins'],
+    packages=['electrum_cryp','electrum_cryp_gui','electrum_cryp_gui.qt','electrum_cryp_plugins'],
     package_data={
-        'electrum_xvg': [
+        'electrum_cryp': [
             'www/index.html',
             'wordlist/*.txt',
             'locale/*/LC_MESSAGES/electrum.mo',
         ],
-        'electrum_xvg_gui': [
+        'electrum_cryp_gui': [
             "qt/themes/cleanlook/name.cfg",
             "qt/themes/cleanlook/style.css",
             "qt/themes/sahara/name.cfg",
@@ -60,7 +60,7 @@ setup(
             "qt/themes/dark/style.css",
         ]
     },
-    scripts=['electrum-xvg'],
+    scripts=['electrum-cryp'],
     data_files=data_files,
     description="Lightweight CrypticCoin TOR Wallet",
     author="cryp",

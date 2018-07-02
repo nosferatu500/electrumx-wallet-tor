@@ -8,17 +8,17 @@ from base64 import b64encode, b64decode
 import unicodedata
 import threading
 
-import electrum_xvg as electrum
-from electrum_xvg.account import BIP32_Account
-from electrum_xvg.bitcoin import EncodeBase58Check, public_key_to_bc_address, bc_address_to_hash_160
-from electrum_xvg.i18n import _
-from electrum_xvg.plugins import BasePlugin, hook, always_hook, run_hook
-from electrum_xvg.transaction import deserialize
-from electrum_xvg.wallet import BIP32_HD_Wallet
-from electrum_xvg.util import print_error
-from electrum_xvg.wallet import pw_decode, bip32_private_derivation, bip32_root
+import electrum_cryp as electrum
+from electrum_cryp.account import BIP32_Account
+from electrum_cryp.bitcoin import EncodeBase58Check, public_key_to_bc_address, bc_address_to_hash_160
+from electrum_cryp.i18n import _
+from electrum_cryp.plugins import BasePlugin, hook, always_hook, run_hook
+from electrum_cryp.transaction import deserialize
+from electrum_cryp.wallet import BIP32_HD_Wallet
+from electrum_cryp.util import print_error
+from electrum_cryp.wallet import pw_decode, bip32_private_derivation, bip32_root
 
-from electrum_xvg_gui.qt.util import *
+from electrum_cryp_gui.qt.util import *
 
 try:
     from trezorlib.client import types
@@ -534,7 +534,7 @@ class TrezorQtHandler:
         self.done.set()
 
     def passphrase_dialog(self):
-        from electrum_xvg_gui.qt.password_dialog import make_password_dialog, run_password_dialog
+        from electrum_cryp_gui.qt.password_dialog import make_password_dialog, run_password_dialog
         d = QDialog()
         d.setModal(1)
         d.setLayout(make_password_dialog(d, None, self.message, False))

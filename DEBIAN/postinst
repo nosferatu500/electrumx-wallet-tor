@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo desktop-file-install /usr/bin/electrum-cryp/electrum-xvg.desktop
+sudo desktop-file-install /usr/bin/electrum-cryp/electrum-cryp.desktop
 
 sudo add-apt-repository ppa:webupd8team/tor-browser -y
 sudo apt-get update
@@ -16,9 +16,9 @@ echo "HiddenServicePort 50002 159.69.29.5:50002" >>  /usr/bin/electrum-cryp/torr
 
 cp /usr/bin/electrum-cryp/torrc_el /etc/tor
 
-cp -p /usr/bin/electrum-cryp/electrum-xvg.conf $HOME/.electrum-xvg-tor/config
+cp -p /usr/bin/electrum-cryp/electrum-cryp.conf $HOME/.electrum-cryp-tor/config
 
-sudo chmod 700 $HOME/.electrum-xvg-tor/config
+sudo chmod 700 $HOME/.electrum-cryp-tor/config
 
 sudo chmod 700 $HOME/tor
 
